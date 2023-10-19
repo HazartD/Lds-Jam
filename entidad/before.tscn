@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs72ywk6bnuvl"]
+
+[ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="1_87dlm"]
+[ext_resource type="Script" path="res://entidad/before.gd" id="1_li38k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o80s6"]
+size = Vector2(128, 128)
+
+[node name="player" type="CharacterBody2D" groups=["guardar"]]
+script = ExtResource("1_li38k")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_87dlm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o80s6")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 65)

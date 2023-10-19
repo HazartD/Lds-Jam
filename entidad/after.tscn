@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cybdwaueakeat"]
+
+[ext_resource type="Script" path="res://entidad/after.gd" id="1_j3ovf"]
+[ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="2_uyhce"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38sc6"]
+size = Vector2(128, 128)
+
+[node name="after" type="CharacterBody2D" groups=["guardar"]]
+script = ExtResource("1_j3ovf")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_uyhce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_38sc6")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 65)
