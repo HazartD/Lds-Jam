@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://fkls0lwl8skh"]
+
+[ext_resource type="Script" path="res://niveles/Cabras.gd" id="1_fj5la"]
+[ext_resource type="PackedScene" uid="uid://uw658mf4gof0" path="res://entidad/player.tscn" id="2_je7tg"]
+[ext_resource type="PackedScene" uid="uid://js6v3fd8vx3c" path="res://elementos/elemento_en_escena.tscn" id="3_n0m23"]
+[ext_resource type="PackedScene" uid="uid://bg22mdljrdb40" path="res://dialogo/Dcabra.tscn" id="4_8ho8c"]
+
+[node name="Cabra" type="Node2D"]
+script = ExtResource("1_fj5la")
+
+[node name="player" parent="." instance=ExtResource("2_je7tg")]
+position = Vector2(239, 188)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_n0m23")]
+position = Vector2(269, 357)
+
+[node name="D" parent="." instance=ExtResource("4_8ho8c")]
+visible = false
+
+[node name="Label" type="TextEdit" parent="."]
+offset_left = 591.0
+offset_top = 138.0
+offset_right = 947.0
+offset_bottom = 233.0
+
+[connection signal="interaccion" from="StaticBody2D" to="." method="_on_static_body_2d_interaccion"]

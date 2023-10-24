@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtah6v33ftp5u"]
+
+[ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="1_4q2hl"]
+[ext_resource type="Script" path="res://UI/menuinicio.gd" id="1_r8e0t"]
+
+[node name="Menuinicio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r8e0t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="nueva_partida" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 408.0
+offset_bottom = 87.0
+texture_normal = ExtResource("1_4q2hl")
+
+[connection signal="button_down" from="nueva_partida" to="." method="_on_nueva_partida_button_down"]

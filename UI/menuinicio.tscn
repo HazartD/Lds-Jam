@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dtah6v33ftp5u"]
+[gd_scene load_steps=2 format=3 uid="uid://dtah6v33ftp5u"]
+
+[ext_resource type="Script" path="res://UI/menuinicio.gd" id="1_r8e0t"]
 
 [node name="Menuinicio" type="Control"]
 layout_mode = 3
@@ -7,8 +9,80 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r8e0t")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -323.0
+offset_top = -239.5
+offset_right = 323.0
+offset_bottom = 239.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../../Button")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -80.0
+offset_right = 220.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.0
+offset_top = -206.0
+offset_right = 278.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cargar" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../nueva")
+
+[node name="nueva" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Cargar")
+focus_neighbor_bottom = NodePath("../options")
+
+[node name="options" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_neighbor_top = NodePath("../nueva")
+focus_neighbor_bottom = NodePath("../exit")
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_neighbor_top = NodePath("../options")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/Cargar" to="." method="_on_nueva_partida_2_button_down"]
+[connection signal="button_down" from="VBoxContainer/nueva" to="." method="_on_nueva_partida_button_down"]

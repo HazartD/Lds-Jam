@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0i2uujb6x7qb"]
+
+[ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="1_a33j8"]
+[ext_resource type="Script" path="res://UI/cargar.gd" id="2_50p1w"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(50, 100)
+offset_right = 278.0
+offset_bottom = 121.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+icon = ExtResource("1_a33j8")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_50p1w")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

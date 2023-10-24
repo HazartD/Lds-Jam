@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://uw658mf4gof0"]
+
+[ext_resource type="Script" path="res://clases/player.gd" id="1_w74lh"]
+[ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="2_ofe8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o80s6"]
+size = Vector2(128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1hp7a"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idel",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D" groups=["Persist"]]
+script = ExtResource("1_w74lh")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_ofe8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o80s6")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 65)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1hp7a")
+animation = &"idel"

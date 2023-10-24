@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0ynpsxlha1fw"]
+
+[ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="1_i4kko"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 87.0
+offset_bottom = 24.0
+texture_normal = ExtResource("1_i4kko")
+ignore_texture_size = true
+stretch_mode = 0

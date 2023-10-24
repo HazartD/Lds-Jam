@@ -11,12 +11,21 @@ config_version=5
 [application]
 
 config/name="Lds-Jam"
+run/main_scene="res://UI/menuinicio.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Seales="*res://seales.gd"
+Save="*res://save.gd"
+Inentary="*res://inentary.gd"
+Progresos="*res://progresos.gd"
+Config="*res://config.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
