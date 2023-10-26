@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rhacwqdebt1b"]
+
+[ext_resource type="Script" path="res://niveles/Templo.gd" id="1_4lkce"]
+[ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="1_bins8"]
+
+[node name="Templo" type="Node2D" groups=["Persist"]]
+script = ExtResource("1_4lkce")
+
+[node name="Placeholder" type="Sprite2D" parent="."]
+position = Vector2(1, 2)
+texture = ExtResource("1_bins8")

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bqnqcq7olj4mt"
+
+[deps]
+
+files=["res://traducciones/finales.es.translation", "res://traducciones/finales.en.translation"]
+
+source_file="res://traducciones/finales.csv"
+dest_files=["res://traducciones/finales.es.translation", "res://traducciones/finales.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

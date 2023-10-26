@@ -1,32 +1,34 @@
 extends Control
 const botoncargar= preload("res://UI/cargar.tscn")
+var dir=DirAccess.open("user://HazartD/7DNA")
 
-var dir= DirAccess.open("user://")
 func _ready():
 	TranslationServer.set_locale(Config.locali)
-	dir.make_dir_absolute("user://HazartD/7DNA")
-	dir=DirAccess.open("user://HazartD/7DNA")
-	$VBoxContainer/Cargar.grab_focus()
+	Save.cargado.connect(cargo)
+	var files=dir.get_files()
+	if !files:
+		$VBoxContainer/Cargar.set_disabled(true)
+		$VBoxContainer/nueva.grab_focus()
+	else:$VBoxContainer/Cargar.grab_focus()
 
 func _on_nueva_partida_button_down():
-	Save.NombrePartida="/Slot%s.txt" %Config.parti
-	while FileAccess.file_exists(dir.get_current_dir()+Save.NombrePartida):
-		Config.parti+=1
-		Save.NombrePartida="/Slot%s.txt" %Config.parti
+	var parti:int=0
+	Save.NombrePartida="user://HazartD/7DNA/Slot%s.txt" %parti
+	while FileAccess.file_exists(Save.NombrePartida):
+		parti+=1
+		Save.NombrePartida="user://HazartD/7DNA/Slot%s.txt" %parti
 	print(Save.NombrePartida)
-	var file = FileAccess.open(dir.get_current_dir()+Save.NombrePartida, FileAccess.WRITE)
-	print(FileAccess.get_open_error())
-	file.close()
 	get_tree().change_scene_to_file("res://niveles/Cabra.tscn")
-	Config.parti=+1
-	print(dir.get_current_dir())
+	Seales.ESCENA_CAMBIO.emit()
 
 
 func _on_nueva_partida_2_button_down():
 	$ScrollContainer.show()
 	$VBoxContainer.hide()
 	$Button.show()
-	var files=DirAccess.open("user://").get_files()
+	var files=dir.get_files()
+	if !files:
+		return
 	for fi in files:
 		var bon=botoncargar.instantiate()
 		bon.text=fi
@@ -45,3 +47,10 @@ func _on_button_button_down():
 	$ScrollContainer.hide()
 	$VBoxContainer.show()
 	$Button.hide()
+	$VBoxContainer/Cargar.grab_focus()
+func cargo():
+	queue_free()
+
+
+func _on_exit_button_down():
+	get_tree().quit()

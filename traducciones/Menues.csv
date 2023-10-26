@@ -1,5 +1,10 @@
 ,es,en
 conti,Continuar,Continue
 nuev,Nueva Partida,New Game
+back,Volver,Back
 config,Configuracion,Settings
 credi,Creditos,Credits
+save,Guardar Partida,Save Game
+load,Cargar Partida,Load Game
+exit,Salir,Quit
+main,Menu Principal,Main Menu

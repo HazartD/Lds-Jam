@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ckdjv584ncui2"
+
+[deps]
+
+files=["res://traducciones/escenario_cabras.es.translation", "res://traducciones/escenario_cabras.en.translation"]
+
+source_file="res://traducciones/escenario_cabras.csv"
+dest_files=["res://traducciones/escenario_cabras.es.translation", "res://traducciones/escenario_cabras.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://n7w0h7mecr5t"
+
+[deps]
+
+files=["res://traducciones/escenario_Cock.es.translation", "res://traducciones/escenario_Cock.en.translation"]
+
+source_file="res://traducciones/escenario_Cock.csv"
+dest_files=["res://traducciones/escenario_Cock.es.translation", "res://traducciones/escenario_Cock.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

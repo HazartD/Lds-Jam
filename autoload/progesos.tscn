@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xwjt4sm8all6"]
+
+[ext_resource type="Script" path="res://autoload/progresos.gd" id="1_t4cdw"]
+
+[node name="progesos" type="Node" groups=["Persist"]]
+script = ExtResource("1_t4cdw")

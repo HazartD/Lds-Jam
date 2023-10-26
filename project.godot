@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Seales="*res://seales.gd"
-Save="*res://save.gd"
-Inentary="*res://inentary.gd"
-Progresos="*res://progresos.gd"
+Seales="*res://autoload/seales.gd"
+Save="*res://autoload/save.gd"
+Inentary="*res://autoload/inentary.gd"
+Progresos="*res://autoload/progresos.gd"
 Config="*res://config.gd"
 
 [display]

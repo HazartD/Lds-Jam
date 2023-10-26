@@ -86,3 +86,4 @@ focus_neighbor_top = NodePath("../options")
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/Cargar" to="." method="_on_nueva_partida_2_button_down"]
 [connection signal="button_down" from="VBoxContainer/nueva" to="." method="_on_nueva_partida_button_down"]
+[connection signal="button_down" from="VBoxContainer/exit" to="." method="_on_exit_button_down"]
