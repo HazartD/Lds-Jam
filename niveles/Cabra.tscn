@@ -20,6 +20,6 @@ offset_right = 947.0
 offset_bottom = 233.0
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(585, 371)
+position = Vector2(762, 328)
 
 [connection signal="interaccion" from="StaticBody2D" to="." method="_on_static_body_2d_interaccion"]

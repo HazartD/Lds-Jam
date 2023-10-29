@@ -1,6 +1,7 @@
 extends Node
 enum objetos {}
-var  inven=["","",""]
+var  inven=["","","",{"a":1,"b":2}]
+
 func save()->Dictionary:
-	var saver ={"parent":get_parent().get_path(),"filename":get_scene_file_path(),"inven":inven}
+	var saver ={"i":null,"inven":inven}
 	return saver

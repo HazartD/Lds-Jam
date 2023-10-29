@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://lt23rxwq66jt"]
-
-[ext_resource type="Script" path="res://autoload/inentary.gd" id="1_5yy88"]
-
-[node name="inentary" type="Node" groups=["Persist"]]
-script = ExtResource("1_5yy88")

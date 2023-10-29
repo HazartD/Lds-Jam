@@ -13,16 +13,12 @@ func get_input():
 func _input(event):
 	if event.is_action_pressed("ui_up"):
 		$RayCast2D.rotation_degrees=180
-	if event.is_action_pressed("ui_down"):
+	elif event.is_action_pressed("ui_down"):
 		$RayCast2D.rotation_degrees=0
-	if event.is_action_pressed("ui_right"):
+	elif event.is_action_pressed("ui_right"):
 		$RayCast2D.rotation_degrees=270
-	if event.is_action("ui_left"):
+	elif event.is_action("ui_left"):
 		$RayCast2D.rotation_degrees=90
-	if event.is_action_released("ui_left"):est_act=Estado.IDELLEFT
-	if event.is_action_released("ui_up"):est_act=Estado.IDELUP
-	if event.is_action_released("ui_right"):est_act=Estado.IDELRIGHT
-	if event.is_action_released("ui_down"):est_act=Estado.IDELDOWN
 	
 	if event.is_action_pressed("ui_accept"):
 		if $RayCast2D.is_colliding():$RayCast2D.get_collider().interaccion.emit()

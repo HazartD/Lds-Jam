@@ -16,6 +16,7 @@ animations = [{
 
 [node name="player" type="CharacterBody2D" groups=["Persist"]]
 script = ExtResource("1_w74lh")
+metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture = ExtResource("2_ofe8k")
@@ -29,3 +30,5 @@ target_position = Vector2(0, 65)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1hp7a")
 animation = &"idel"
+
+[node name="Camera2D" type="Camera2D" parent="."]

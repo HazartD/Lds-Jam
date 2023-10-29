@@ -1,9 +1,12 @@
 extends Node
-enum escenarios{}
-enum dia{UNO,DOS,TRES,CUATRO,CINCO,SEIS,REQUESON}
+enum Escenarios{GOAT}
+enum DIA{CERO,UNO,DOS,TRES,CUATRO,CINCO,SEIS,REQUESON}
 enum cambio_mode{BEFORE,AFTER}
-var dia_es:dia
-var progresion={}
+var mode:cambio_mode=cambio_mode.BEFORE
+var escenario:Escenarios=Escenarios.GOAT
+var dia_es:DIA
+var progresion={"ww":1}
+
 func save()->Dictionary:
-	var saver ={"parent":get_parent().get_path(),"filename":get_scene_file_path()}
+	var saver ={"p":null,"progresion":progresion,"dia_es":dia_es,"escenario":escenario,"mode":mode}
 	return saver

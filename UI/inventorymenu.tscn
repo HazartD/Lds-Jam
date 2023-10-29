@@ -42,11 +42,6 @@ custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 text = "save"
 
-[node name="cargar" type="Button" parent="Control/HBC/VBC"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-text = "load"
-
 [node name="opciones" type="Button" parent="Control/HBC/VBC"]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
@@ -65,6 +60,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.65
+follow_focus = true
 
 [node name="IL" type="ItemList" parent="Control/HBC/SC"]
 layout_mode = 2
@@ -75,6 +71,7 @@ max_text_lines = 2
 item_count = 5
 max_columns = 5
 same_column_width = true
+fixed_column_width = 167
 icon_mode = 0
 fixed_icon_size = Vector2i(100, 100)
 item_0/text = "xdcfgvhbjnkm"
@@ -90,5 +87,5 @@ item_4/icon = ExtResource("3_rl06c")
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="button_down" from="Control/HBC/VBC/guardar" to="." method="_on_guardar_button_down"]
-[connection signal="button_down" from="Control/HBC/VBC/cargar" to="." method="_on_cargar_button_down"]
+[connection signal="button_down" from="Control/HBC/VBC/opciones" to="." method="_on_opciones_button_down"]
 [connection signal="button_down" from="Control/HBC/VBC/mainmenu" to="." method="_on_button_button_down"]

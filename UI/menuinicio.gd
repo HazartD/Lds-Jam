@@ -1,9 +1,11 @@
 extends Control
 const botoncargar= preload("res://UI/cargar.tscn")
-var dir=DirAccess.open("user://HazartD/7DNA")
+var dir=DirAccess.open("user://HazartD/7DNA/saves")
 
 func _ready():
-	TranslationServer.set_locale(Config.locali)
+	if FileAccess.file_exists("user://HazartD/7DNA/Config_and_data.ini"):$Panel.free()
+	else:$VBoxContainer.hide()
+	Config.carg()
 	Save.cargado.connect(cargo)
 	var files=dir.get_files()
 	if !files:
@@ -13,10 +15,10 @@ func _ready():
 
 func _on_nueva_partida_button_down():
 	var parti:int=0
-	Save.NombrePartida="user://HazartD/7DNA/Slot%s.txt" %parti
+	Save.NombrePartida="user://HazartD/7DNA/saves/Slot%s.txt" %parti
 	while FileAccess.file_exists(Save.NombrePartida):
 		parti+=1
-		Save.NombrePartida="user://HazartD/7DNA/Slot%s.txt" %parti
+		Save.NombrePartida="user://HazartD/7DNA/saves/Slot%s.txt" %parti
 	print(Save.NombrePartida)
 	get_tree().change_scene_to_file("res://niveles/Cabra.tscn")
 	Seales.ESCENA_CAMBIO.emit()
@@ -54,3 +56,16 @@ func cargo():
 
 func _on_exit_button_down():
 	get_tree().quit()
+
+
+func _on_es_down():
+	selec_locale("es")
+func _on_en_down():
+	selec_locale("en")
+func selec_locale(locale:String):
+	TranslationServer.set_locale(locale)
+	Config.guar()
+	$Panel.queue_free()
+	$VBoxContainer.show()
+
+
