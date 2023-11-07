@@ -6,8 +6,8 @@ func metertexto(namedial:String,dial:PackedStringArray):
 	visible=true
 	Seales.moverte=false
 	$C/TT/TN/N.text=namedial
+	$B.grab_focus()
 #	var tewn=create_tween()
-#	if numdial<dial.size():
 	for di in dial:
 		$C/TT/T.text=di
 #			$C/TT/T.visible_ratio=0.0
