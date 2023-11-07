@@ -26,6 +26,8 @@ Save="*res://autoload/save.gd"
 Config="*res://config.gd"
 Inentary="*res://autoload/inentary.gd"
 Progresos="*res://autoload/progresos.gd"
+UiSong="*res://sonido/sceneui/ui_song.tscn"
+D="*res://UI/D.tscn"
 
 [display]
 
@@ -50,7 +52,7 @@ ui_cancel={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://traducciones/DiasIntermedios.en.translation", "res://traducciones/DiasIntermedios.es.translation", "res://traducciones/escenario_cabras.en.translation", "res://traducciones/escenario_cabras.es.translation", "res://traducciones/escenario_Cock.en.translation", "res://traducciones/escenario_Cock.es.translation", "res://traducciones/finales.en.translation", "res://traducciones/finales.es.translation", "res://traducciones/Menues.en.translation", "res://traducciones/Menues.es.translation")
+locale/translations=PackedStringArray("res://traducciones/DiasIntermedios.en.translation", "res://traducciones/DiasIntermedios.es.translation", "res://traducciones/escenario_cabras.en.translation", "res://traducciones/escenario_cabras.es.translation", "res://traducciones/escenario_Cock.en.translation", "res://traducciones/escenario_Cock.es.translation", "res://traducciones/finales.en.translation", "res://traducciones/finales.es.translation", "res://traducciones/Menues.en.translation", "res://traducciones/Menues.es.translation", "res://traducciones/Items.en.translation", "res://traducciones/Items.es.translation")
 
 [rendering]
 

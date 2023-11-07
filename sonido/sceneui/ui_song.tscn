@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://coqol654apxxa"]
+
+[ext_resource type="Script" path="res://sonido/sceneui/ui_song.gd" id="1_jc6i1"]
+[ext_resource type="AudioStream" uid="uid://dyknvwwg8x1na" path="res://sonido/sfx/wind.mp3" id="1_scjhg"]
+[ext_resource type="AudioStream" uid="uid://y841elj3mioi" path="res://sonido/sfx/paper-tear.mp3" id="2_xvjrn"]
+[ext_resource type="AudioStream" uid="uid://dhyabox5hha0i" path="res://sonido/sfx/swing.mp3" id="3_8kb4m"]
+
+[node name="ui_song" type="Node"]
+script = ExtResource("1_jc6i1")
+
+[node name="focus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_scjhg")
+bus = &"UI"
+
+[node name="cancel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xvjrn")
+bus = &"UI"
+
+[node name="celect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8kb4m")
+bus = &"UI"

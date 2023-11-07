@@ -1,25 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://fkls0lwl8skh"]
+[gd_scene load_steps=11 format=3 uid="uid://fkls0lwl8skh"]
 
 [ext_resource type="Script" path="res://niveles/Cabras.gd" id="1_fj5la"]
-[ext_resource type="PackedScene" uid="uid://js6v3fd8vx3c" path="res://elementos/elemento_en_escena.tscn" id="3_n0m23"]
-[ext_resource type="PackedScene" uid="uid://bg22mdljrdb40" path="res://dialogo/Dcabra.tscn" id="4_8ho8c"]
+[ext_resource type="Texture2D" uid="uid://7jyf7jvwejkf" path="res://img/fondo nivel/cabra_test.jpg" id="2_8vgjk"]
+[ext_resource type="AudioStream" uid="uid://ddr365stosdws" path="res://sonido/Goat_Scenario_1.ogg" id="4_0k44m"]
+[ext_resource type="PackedScene" uid="uid://bg22mdljrdb40" path="res://UI/D.tscn" id="4_8ho8c"]
+[ext_resource type="AudioStream" uid="uid://t4umlh2gwxhs" path="res://sonido/Goat_Scenario_2.ogg" id="5_gj77c"]
+[ext_resource type="Script" path="res://clases/entidad.gd" id="5_glogr"]
+[ext_resource type="Script" path="res://clases/elemento.gd" id="6_h4pds"]
+[ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="7_kb5do"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qkmy"]
+radius = 48.4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpgmf"]
+size = Vector2(100, 21)
 
 [node name="Cabra" type="Node2D" groups=["Persist"]]
 script = ExtResource("1_fj5la")
 
-[node name="StaticBody2D" parent="." instance=ExtResource("3_n0m23")]
-position = Vector2(269, 357)
+[node name="Fondo" type="StaticBody2D" parent="."]
+
+[node name="CabraTest" type="Sprite2D" parent="Fondo"]
+position = Vector2(1439.65, -1406.22)
+scale = Vector2(1.51882, 1.1182)
+texture = ExtResource("2_8vgjk")
 
 [node name="D" parent="." instance=ExtResource("4_8ho8c")]
-visible = false
 
 [node name="Label" type="TextEdit" parent="."]
 offset_left = 591.0
 offset_top = 138.0
 offset_right = 947.0
 offset_bottom = 233.0
+metadata/_edit_use_anchors_ = true
+
+[node name="before" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_0k44m")
+autoplay = true
+bus = &"BGM"
+
+[node name="after" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_gj77c")
+bus = &"BGM"
+
+[node name="ent" type="Node2D" parent="."]
+
+[node name="Entidad" type="CharacterBody2D" parent="ent"]
+z_index = 1
+position = Vector2(230, 187)
+script = ExtResource("5_glogr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ent/Entidad"]
+shape = SubResource("CircleShape2D_6qkmy")
+
+[node name="el" type="Node2D" parent="."]
+
+[node name="Elemento" type="StaticBody2D" parent="el"]
+z_index = 1
+position = Vector2(400, 370)
+script = ExtResource("6_h4pds")
+metadata/_edit_group_ = true
+
+[node name="Placeholder" type="Sprite2D" parent="el/Elemento"]
+position = Vector2(-1.68681e-05, 0.500011)
+scale = Vector2(0.199219, 0.0410156)
+texture = ExtResource("7_kb5do")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="el/Elemento"]
+shape = SubResource("RectangleShape2D_tpgmf")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(762, 328)
+position = Vector2(785, 350)
 
-[connection signal="interaccion" from="StaticBody2D" to="." method="_on_static_body_2d_interaccion"]
+[connection signal="interaccion" from="ent/Entidad" to="." method="_on_entidad_interaccion"]

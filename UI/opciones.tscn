@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdephdlwcmqhj"]
+[gd_scene load_steps=4 format=3 uid="uid://bdephdlwcmqhj"]
 
 [ext_resource type="Theme" uid="uid://b7ageewfyhi1d" path="res://UI/ui.tres" id="1_7ak7c"]
 [ext_resource type="Script" path="res://UI/opciones.gd" id="2_cjhu2"]
+[ext_resource type="AudioStream" uid="uid://dyknvwwg8x1na" path="res://sonido/sfx/wind.mp3" id="3_5hk0k"]
 
 [node name="opciones" type="PanelContainer"]
 anchors_preset = 8
@@ -9,10 +10,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -476.0
-offset_top = -274.0
-offset_right = 476.0
-offset_bottom = 274.0
+offset_left = -341.0
+offset_top = -190.5
+offset_right = 341.0
+offset_bottom = 190.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7ak7c")
@@ -20,7 +21,6 @@ script = ExtResource("2_cjhu2")
 
 [node name="MC" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 40
@@ -61,37 +61,73 @@ text = "UI Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label5" type="Label" parent="MC/HB/label"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "lan"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="accion" type="VBoxContainer" parent="MC/HB"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="full" type="CheckButton" parent="MC/HB/accion"]
+[node name="full" type="CheckButton" parent="MC/HB/accion" groups=["boton"]]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_right = NodePath("../../saba")
 flat = true
 
-[node name="bgm" type="HSlider" parent="MC/HB/accion"]
+[node name="bgm" type="HSlider" parent="MC/HB/accion" groups=["boton"]]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../saba")
+focus_neighbor_right = NodePath("../../saba")
 min_value = -80.0
 max_value = 6.0
 
-[node name="sfx" type="HSlider" parent="MC/HB/accion"]
+[node name="sfx" type="HSlider" parent="MC/HB/accion" groups=["boton"]]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../saba")
+focus_neighbor_right = NodePath("../../saba")
 min_value = -80.0
 max_value = 6.0
 
-[node name="ui" type="HSlider" parent="MC/HB/accion"]
+[node name="ui" type="HSlider" parent="MC/HB/accion" groups=["boton"]]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../saba")
+focus_neighbor_right = NodePath("../../saba")
 min_value = -80.0
 max_value = 6.0
+
+[node name="Button" type="Button" parent="MC/HB/accion" groups=["boton"]]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../saba")
+focus_neighbor_right = NodePath("../../saba")
+focus_neighbor_bottom = NodePath("../full")
+text = "langu"
+
+[node name="saba" type="Button" parent="MC/HB" groups=["boton"]]
+layout_mode = 2
+focus_neighbor_left = NodePath("../accion/full")
+focus_neighbor_top = NodePath("../accion/Button")
+focus_neighbor_bottom = NodePath("../accion/full")
+text = "saba"
+
+[node name="focus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5hk0k")
+bus = &"UI"
 
 [connection signal="toggled" from="MC/HB/accion/full" to="." method="_on_full_toggled"]
 [connection signal="value_changed" from="MC/HB/accion/bgm" to="." method="_on_bgm_value_changed"]
 [connection signal="value_changed" from="MC/HB/accion/sfx" to="." method="_on_sfx_value_changed"]
 [connection signal="value_changed" from="MC/HB/accion/ui" to="." method="_on_ui_value_changed"]
+[connection signal="button_down" from="MC/HB/accion/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="MC/HB/saba" to="." method="_on_saba_button_down"]

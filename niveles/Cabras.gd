@@ -3,8 +3,12 @@ var num:int=0
 const player= preload("res://entidad/player.tscn")
 func _init():
 	Seales.ESCENA_CAMBIO.connect(cam)
-	Seales.cambio_menumain.connect(main)
 	
+
+func _ready():
+	$Label.text=str(num)
+	
+
 func _process(_delta):
 	num+=1
 	$Label.text=str(num)
@@ -16,13 +20,18 @@ func save():
 
 func _on_static_body_2d_interaccion():
 	print("a")
-#	set_process(false)
-#	dial=["d1","d2","d3"]
-#	dialname="name"
-#	metertexto()
 func cam():
 	var p=player.instantiate()
 	add_child(p)
 	p.position=$Marker2D.position
-func main():
-	queue_free()
+
+
+
+func _on_entidad_interaccion():
+	D.metertexto("yo",["d1","d2","d3"])
+	await D.FIN
+	print("si")
+	D.metertexto("she",["i1","i2","i3"])
+	await D.FIN
+	print("segundo")
+

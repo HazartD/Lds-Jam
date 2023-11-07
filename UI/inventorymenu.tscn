@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://jgowg81xg11r"]
+[gd_scene load_steps=4 format=3 uid="uid://jgowg81xg11r"]
 
 [ext_resource type="Script" path="res://UI/inventorymenu.gd" id="1_vigc1"]
-[ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="2_5ls6o"]
 [ext_resource type="Theme" uid="uid://b7ageewfyhi1d" path="res://UI/ui.tres" id="2_yoc4s"]
-[ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="3_rl06c"]
+[ext_resource type="AudioStream" uid="uid://dyknvwwg8x1na" path="res://sonido/sfx/wind.mp3" id="3_srppq"]
 
 [node name="inventorymenu" type="CanvasLayer"]
 process_mode = 3
@@ -37,20 +36,20 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 focus_neighbor_right = NodePath("../SC/IL")
 
-[node name="guardar" type="Button" parent="Control/HBC/VBC"]
+[node name="guardar" type="Button" parent="Control/HBC/VBC" groups=["boton"]]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 text = "save"
 
-[node name="opciones" type="Button" parent="Control/HBC/VBC"]
+[node name="opciones" type="Button" parent="Control/HBC/VBC" groups=["boton"]]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 text = "config"
 
-[node name="mainmenu" type="Button" parent="Control/HBC/VBC"]
+[node name="mainmenu" type="Button" parent="Control/HBC/VBC" groups=["boton"]]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-text = "main"
+text = "exit"
 
 [node name="VSeparator" type="VSeparator" parent="Control/HBC"]
 custom_minimum_size = Vector2(30, 0)
@@ -68,22 +67,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 allow_rmb_select = true
 max_text_lines = 2
-item_count = 5
-max_columns = 5
-same_column_width = true
-fixed_column_width = 167
-icon_mode = 0
-fixed_icon_size = Vector2i(100, 100)
-item_0/text = "xdcfgvhbjnkm"
-item_0/icon = ExtResource("2_5ls6o")
-item_1/text = "fghjkgvbhjnkmgvbhn"
-item_1/icon = ExtResource("2_5ls6o")
-item_2/text = "sdfgyhujikkghjk"
-item_2/icon = ExtResource("3_rl06c")
-item_3/text = ""
-item_3/icon = ExtResource("3_rl06c")
-item_4/text = ""
-item_4/icon = ExtResource("3_rl06c")
+fixed_icon_size = Vector2i(150, 150)
+
+[node name="focus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_srppq")
+bus = &"UI"
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="button_down" from="Control/HBC/VBC/guardar" to="." method="_on_guardar_button_down"]

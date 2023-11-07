@@ -7,8 +7,15 @@ func _init():
 	DirAccess.make_dir_absolute("user://HazartD/7DNA/saves")
 	
 func save_g():
+	
 	dir=DirAccess.open("user://HazartD/7DNA/saves")
 	var save_game = FileAccess.open(NombrePartida, FileAccess.WRITE)
+	var ata=[Inentary.save(),Progresos.save()]
+	for a in ata:
+		var atajson=JSON.stringify(a)
+		save_game.store_line(atajson)
+	print(Inentary.save())
+	print(Progresos.save())
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	print(save_nodes)
 	for node in save_nodes:
@@ -21,10 +28,6 @@ func save_g():
 		
 		var json_string = JSON.stringify(node_data)
 		save_game.store_line(json_string)
-	var ata=[Inentary.save(),Progresos.save()]
-	for a in ata:
-		var atajson=JSON.stringify(a)
-		save_game.store_line(atajson)
 	
 	save_game.close()
 	guardado.emit()
@@ -64,10 +67,9 @@ func load_g():
 			new_object.position = Vector2(node_data["position:x"], node_data["position:y"])
 			print(new_object.position)
 		for i in node_data.keys():
-			if i == "filename" or i == "parent" or i == "position:x" or i == "position:y":
-				continue
+			if i == "filename" or i == "parent" or i == "position:x" or i == "position:y" or i == "i"or i == "p":continue
 			new_object.set(i, node_data[i])
-	
+		new_object._ready()
 	print(save_nodes)
 	cargado.emit()
 
