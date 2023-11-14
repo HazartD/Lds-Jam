@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtah6v33ftp5u"]
+[gd_scene load_steps=5 format=3 uid="uid://dtah6v33ftp5u"]
 
 [ext_resource type="Theme" uid="uid://b7ageewfyhi1d" path="res://UI/ui.tres" id="1_86xs0"]
 [ext_resource type="Script" path="res://UI/menuinicio.gd" id="1_r8e0t"]
-[ext_resource type="AudioStream" uid="uid://dyknvwwg8x1na" path="res://sonido/sfx/wind.mp3" id="3_vxhbe"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_0pmsx"]
 action = &"ui_cancel"
@@ -138,10 +137,6 @@ offset_bottom = -29.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "English"
-
-[node name="focus" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_vxhbe")
-bus = &"UI"
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/Cargar" to="." method="_on_nueva_partida_2_button_down"]

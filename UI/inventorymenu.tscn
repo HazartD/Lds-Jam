@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://jgowg81xg11r"]
+[gd_scene load_steps=3 format=3 uid="uid://jgowg81xg11r"]
 
 [ext_resource type="Script" path="res://UI/inventorymenu.gd" id="1_vigc1"]
 [ext_resource type="Theme" uid="uid://b7ageewfyhi1d" path="res://UI/ui.tres" id="2_yoc4s"]
-[ext_resource type="AudioStream" uid="uid://dyknvwwg8x1na" path="res://sonido/sfx/wind.mp3" id="3_srppq"]
 
 [node name="inventorymenu" type="CanvasLayer"]
 process_mode = 3
@@ -68,10 +67,6 @@ size_flags_vertical = 3
 allow_rmb_select = true
 max_text_lines = 2
 fixed_icon_size = Vector2i(150, 150)
-
-[node name="focus" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_srppq")
-bus = &"UI"
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="button_down" from="Control/HBC/VBC/guardar" to="." method="_on_guardar_button_down"]

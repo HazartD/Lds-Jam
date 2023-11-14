@@ -12,8 +12,8 @@ func _ready():
 		$VBoxContainer.hide()
 		$Panel/en.grab_focus()
 	for child in get_tree().get_nodes_in_group("boton"):
-		child.focus_entered.connect(func(): $focus.play())
-		child.mouse_entered.connect(func(): $focus.play())
+		child.focus_entered.connect(func(): get_node("/root/UiSong/focus").play())
+		child.mouse_entered.connect(func(): get_node("/root/UiSong/focus").play())
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):if $Button.disabled==false: _on_button_button_down()

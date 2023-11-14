@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdephdlwcmqhj"]
+[gd_scene load_steps=3 format=3 uid="uid://bdephdlwcmqhj"]
 
 [ext_resource type="Theme" uid="uid://b7ageewfyhi1d" path="res://UI/ui.tres" id="1_7ak7c"]
 [ext_resource type="Script" path="res://UI/opciones.gd" id="2_cjhu2"]
-[ext_resource type="AudioStream" uid="uid://dyknvwwg8x1na" path="res://sonido/sfx/wind.mp3" id="3_5hk0k"]
 
 [node name="opciones" type="PanelContainer"]
 anchors_preset = 8
@@ -120,10 +119,6 @@ focus_neighbor_left = NodePath("../accion/full")
 focus_neighbor_top = NodePath("../accion/Button")
 focus_neighbor_bottom = NodePath("../accion/full")
 text = "saba"
-
-[node name="focus" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_5hk0k")
-bus = &"UI"
 
 [connection signal="toggled" from="MC/HB/accion/full" to="." method="_on_full_toggled"]
 [connection signal="value_changed" from="MC/HB/accion/bgm" to="." method="_on_bgm_value_changed"]

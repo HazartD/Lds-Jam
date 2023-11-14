@@ -4,7 +4,10 @@ const player= preload("res://entidad/player.tscn")
 func _init():
 	Seales.ESCENA_CAMBIO.connect(cam)
 	
-
+func print_data():
+	print("inentari:  "+str(Inentary.inven))
+	print("progre:  "+str(Progresos.progresion))
+	
 func _ready():
 	$Label.text=str(num)
 	
@@ -28,10 +31,42 @@ func cam():
 
 
 func _on_entidad_interaccion():
-	D.metertexto("yo",["d1","d2","d3"])
+	if !Progresos.progresion.has("test"):
+		Seales.moverte=false
+		Progresos.progresion["test"]=true
+		Progresos.progresion["InteraTotal"]+=1
+		D.metertexto(["","d1","d2","d3"],"yo")
+		await D.FIN
+		print("si")
+		D.metertexto(["i1","i2","i3"],"she")
+		await D.FIN
+		print("segundo")
+		D.fadein()
+		D.opcion({"thrgefw"=thrgefw,"tgrwfeqd"=tgrwfeqd,"sdfgh"=sdfgh},"esrdtfyguhij")
+
+
+
+func thrgefw():
+	Inentary.inven.append(Inentary.Objetos.PITO)
+	print_data()
+	D.metertexto(["¿thrgefw?","d4","d5"],"yo")
 	await D.FIN
-	print("si")
-	D.metertexto("she",["i1","i2","i3"])
+	Seales.moverte=true
+func tgrwfeqd():
+	Inentary.inven.append(Inentary.Objetos.PELOTA)
+	print_data()
+	D.metertexto(["¿tgrwfeqd?","i4","i5"],"she")
 	await D.FIN
-	print("segundo")
+	Seales.moverte=true
+func sdfgh():
+	Inentary.inven.append(Inentary.Objetos.TRAUMA)
+	print_data()
+	D.metertexto(["¿sdfgh?","i6","i7"],"she")
+	await D.FIN
+	D.metertexto(["d6","d7"],"yo")
+	await D.FIN
+	D.metertexto(["fuck"])
+	await D.FIN
+	Seales.moverte=true
+	
 

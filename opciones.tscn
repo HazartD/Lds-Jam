@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c21mgje2wtbye"]
+[gd_scene format=3 uid="uid://cw8q424npi2re"]
 
 [node name="opciones" type="PanelContainer"]
 anchors_preset = 8

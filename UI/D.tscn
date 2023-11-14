@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg22mdljrdb40"]
+[gd_scene load_steps=8 format=3 uid="uid://bg22mdljrdb40"]
 
 [ext_resource type="Script" path="res://UI/dialogo.gd" id="1_lt8c8"]
 [ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="1_xjndq"]
+[ext_resource type="Shader" path="res://img/Shaders/Invisble.gdshader" id="2_ou246"]
 [ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="3_1ynr4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4f8y8"]
+shader = ExtResource("2_ou246")
+shader_parameter/modifica = 1.0
 
 [sub_resource type="InputEventAction" id="InputEventAction_w43sx"]
 action = &"ui_accept"
@@ -11,11 +16,20 @@ action = &"ui_accept"
 events = [SubResource("InputEventAction_w43sx")]
 
 [node name="D" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_lt8c8")
 
-[node name="C" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_4f8y8")
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="C" type="Control" parent="Control"]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -24,7 +38,7 @@ offset_top = -325.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TT" type="TextureRect" parent="C"]
+[node name="TT" type="TextureRect" parent="Control/C"]
 modulate = Color(0.254902, 0.0117647, 0.14902, 1)
 layout_mode = 1
 anchors_preset = 7
@@ -41,7 +55,7 @@ grow_vertical = 0
 texture = ExtResource("1_xjndq")
 expand_mode = 1
 
-[node name="T" type="RichTextLabel" parent="C/TT"]
+[node name="T" type="RichTextLabel" parent="Control/C/TT"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -57,7 +71,7 @@ grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 25
 text = "cgvhbjnkmltyvuihb knjonjlnlnlknlnljnjlnln n"
 
-[node name="TN" type="TextureRect" parent="C/TT"]
+[node name="TN" type="TextureRect" parent="Control/C/TT"]
 layout_mode = 0
 offset_top = -48.0
 offset_right = 1092.0
@@ -65,7 +79,7 @@ offset_bottom = -8.0
 texture = ExtResource("3_1ynr4")
 expand_mode = 1
 
-[node name="N" type="RichTextLabel" parent="C/TT/TN"]
+[node name="N" type="RichTextLabel" parent="Control/C/TT/TN"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,10 +92,24 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "xdcfvgbhnjmkfvgbhnjm"
 
-[node name="B" type="TextureButton" parent="."]
+[node name="B" type="TextureButton" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 shortcut = SubResource("Shortcut_uillc")
+
+[node name="O" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -21.0
+offset_right = -10.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0

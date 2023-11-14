@@ -6,8 +6,8 @@ func _ready():
 	get_tree().set_pause(true)
 	add_items()
 	for child in get_tree().get_nodes_in_group("boton"):
-		child.focus_entered.connect(func(): $focus.play())
-		child.mouse_entered.connect(func(): $focus.play())
+		child.focus_entered.connect(func(): get_node("/root/UiSong/focus").play())
+		child.mouse_entered.connect(func(): get_node("/root/UiSong/focus").play())
 
 
 func _on_guardar_button_down():
