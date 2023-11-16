@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://fkls0lwl8skh"]
+[gd_scene load_steps=16 format=3 uid="uid://fkls0lwl8skh"]
 
 [ext_resource type="Script" path="res://niveles/Cabras.gd" id="1_fj5la"]
 [ext_resource type="Texture2D" uid="uid://7jyf7jvwejkf" path="res://img/fondo nivel/cabra_test.jpg" id="2_8vgjk"]
@@ -9,18 +9,32 @@
 [ext_resource type="Script" path="res://clases/elemento.gd" id="6_h4pds"]
 [ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="7_kb5do"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6qkmy"]
-radius = 48.4
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n7tso"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl3bc"]
+size = Vector2(74, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8slc"]
+size = Vector2(58, 96)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcvis"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dn1qr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e6iya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpgmf"]
 size = Vector2(100, 21)
 
-[node name="Cabra" type="Node2D" groups=["Persist"]]
+[node name="Cabra" type="Node2D" groups=["Persist", "scenary"]]
 script = ExtResource("1_fj5la")
+metadata/_edit_vertical_guides_ = []
+metadata/_edit_horizontal_guides_ = []
 
 [node name="Fondo" type="StaticBody2D" parent="."]
 
 [node name="CabraTest" type="Sprite2D" parent="Fondo"]
+material = SubResource("ShaderMaterial_n7tso")
 position = Vector2(1439.65, -1406.22)
 scale = Vector2(1.51882, 1.1182)
 texture = ExtResource("2_8vgjk")
@@ -51,10 +65,28 @@ bus = &"BGM"
 z_index = 1
 position = Vector2(230, 187)
 script = ExtResource("5_glogr")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ent/Entidad"]
-shape = SubResource("CircleShape2D_6qkmy")
+position = Vector2(-1, -3)
+shape = SubResource("RectangleShape2D_dl3bc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ent/Entidad"]
+position = Vector2(100, -1)
+shape = SubResource("RectangleShape2D_b8slc")
+
+[node name="Placeholder" type="Sprite2D" parent="ent/Entidad"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_fcvis")
+position = Vector2(-0.5, -3)
+scale = Vector2(0.146484, 0.160156)
+texture = ExtResource("7_kb5do")
+
+[node name="Placeholder2" type="Sprite2D" parent="ent/Entidad"]
+texture_repeat = 3
+material = SubResource("ShaderMaterial_dn1qr")
+position = Vector2(100, -1.5)
+scale = Vector2(0.113281, 0.189453)
+texture = ExtResource("7_kb5do")
 
 [node name="el" type="Node2D" parent="."]
 
@@ -65,6 +97,7 @@ script = ExtResource("6_h4pds")
 metadata/_edit_group_ = true
 
 [node name="Placeholder" type="Sprite2D" parent="el/Elemento"]
+material = SubResource("ShaderMaterial_e6iya")
 position = Vector2(-1.68681e-05, 0.500011)
 scale = Vector2(0.199219, 0.0410156)
 texture = ExtResource("7_kb5do")
@@ -76,3 +109,4 @@ shape = SubResource("RectangleShape2D_tpgmf")
 position = Vector2(785, 350)
 
 [connection signal="interaccion" from="ent/Entidad" to="." method="_on_entidad_interaccion"]
+[connection signal="interaccion" from="el/Elemento" to="." method="_on_elemento_interaccion"]

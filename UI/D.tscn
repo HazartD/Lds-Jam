@@ -2,11 +2,18 @@
 
 [ext_resource type="Script" path="res://UI/dialogo.gd" id="1_lt8c8"]
 [ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="1_xjndq"]
-[ext_resource type="Shader" path="res://img/Shaders/Invisble.gdshader" id="2_ou246"]
 [ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="3_1ynr4"]
 
+[sub_resource type="Shader" id="Shader_u1nwn"]
+code = "shader_type canvas_item;
+uniform float modifica: hint_range(0.0, 1.0)=0;
+void fragment() {
+	COLOR.a=modifica;
+}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4f8y8"]
-shader = ExtResource("2_ou246")
+shader = SubResource("Shader_u1nwn")
 shader_parameter/modifica = 1.0
 
 [sub_resource type="InputEventAction" id="InputEventAction_w43sx"]
@@ -39,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="TT" type="TextureRect" parent="Control/C"]
-modulate = Color(0.254902, 0.0117647, 0.14902, 1)
+self_modulate = Color(0.254902, 0.0117647, 0.14902, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -72,6 +79,7 @@ theme_override_font_sizes/normal_font_size = 25
 text = "cgvhbjnkmltyvuihb knjonjlnlnlknlnljnjlnln n"
 
 [node name="TN" type="TextureRect" parent="Control/C/TT"]
+self_modulate = Color(0.254902, 0.0117647, 0.14902, 1)
 layout_mode = 0
 offset_top = -48.0
 offset_right = 1092.0
@@ -93,12 +101,14 @@ grow_vertical = 2
 text = "xdcfvgbhnjmkfvgbhnjm"
 
 [node name="B" type="TextureButton" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 shortcut = SubResource("Shortcut_uillc")
 
 [node name="O" type="VBoxContainer" parent="Control"]

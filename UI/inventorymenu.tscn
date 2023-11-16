@@ -68,6 +68,20 @@ allow_rmb_select = true
 max_text_lines = 2
 fixed_icon_size = Vector2i(150, 150)
 
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -264.0
+offset_right = 271.0
+offset_bottom = -35.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+autowrap_mode = 3
+
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="button_down" from="Control/HBC/VBC/guardar" to="." method="_on_guardar_button_down"]
 [connection signal="button_down" from="Control/HBC/VBC/opciones" to="." method="_on_opciones_button_down"]

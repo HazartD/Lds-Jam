@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://uw658mf4gof0"]
+[gd_scene load_steps=6 format=3 uid="uid://uw658mf4gof0"]
 
 [ext_resource type="Script" path="res://clases/player.gd" id="1_w74lh"]
 [ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="2_ofe8k"]
+[ext_resource type="PackedScene" uid="uid://024trakey1jn" path="res://UI/in_game.tscn" id="3_j2fsm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o80s6"]
 size = Vector2(35, 20)
@@ -18,7 +19,8 @@ animations = [{
 script = ExtResource("1_w74lh")
 
 [node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.0685547, 0.197)
+position = Vector2(0, -0.215998)
+scale = Vector2(0.0685547, 0.196156)
 texture = ExtResource("2_ofe8k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -33,3 +35,5 @@ sprite_frames = SubResource("SpriteFrames_1hp7a")
 animation = &"idel"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="in_game" parent="." instance=ExtResource("3_j2fsm")]

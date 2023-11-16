@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dhyabox5hha0i" path="res://sonido/sfx/swing.mp3" id="3_8kb4m"]
 
 [node name="ui_song" type="Node"]
+process_mode = 3
 script = ExtResource("1_jc6i1")
 
 [node name="focus" type="AudioStreamPlayer" parent="."]

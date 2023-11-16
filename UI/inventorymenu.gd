@@ -1,6 +1,7 @@
 extends CanvasLayer
 const opcion=preload("res://UI/opciones.tscn")
 var opci:bool=false
+const img:PackedStringArray=["res://placeholder.png","res://img/fondo nivel/cabra_test.jpg","res://placeholder.png","res://img/fondo nivel/cabra_test.jpg"]
 func _ready():
 	$Control/HBC/VBC/guardar.grab_focus()
 	get_tree().set_pause(true)
@@ -8,6 +9,7 @@ func _ready():
 	for child in get_tree().get_nodes_in_group("boton"):
 		child.focus_entered.connect(func(): get_node("/root/UiSong/focus").play())
 		child.mouse_entered.connect(func(): get_node("/root/UiSong/focus").play())
+		$Control/Label.text=str(Progresos.save())
 
 
 func _on_guardar_button_down():
@@ -39,14 +41,12 @@ func _on_opciones_button_down():
 	add_child(opin)
 	opci=true
 	opin.connect("tree_exiting",opexit)
+
+
+
+
 func add_items():
-	for i in Inentary.inven:
-		var e:String
-		match i:
-			0: e="res://placeholder.png"
-			1: e="res://placeholder.png"
-			2: e="res://placeholder.png"
-			3: e="res://placeholder.png"
-		$Control/HBC/SC/IL.add_item(tr(e),load(e))
+	for i in Progresos.inven:
+		$Control/HBC/SC/IL.add_item(tr(str(i)),load(img[i]))
 
 
