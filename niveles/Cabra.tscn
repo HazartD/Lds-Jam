@@ -33,7 +33,7 @@ metadata/_edit_horizontal_guides_ = []
 
 [node name="Fondo" type="StaticBody2D" parent="."]
 
-[node name="CabraTest" type="Sprite2D" parent="Fondo"]
+[node name="CabraTest" type="Sprite2D" parent="Fondo" groups=["invert"]]
 material = SubResource("ShaderMaterial_n7tso")
 position = Vector2(1439.65, -1406.22)
 scale = Vector2(1.51882, 1.1182)
@@ -62,7 +62,6 @@ bus = &"BGM"
 [node name="ent" type="Node2D" parent="."]
 
 [node name="Entidad" type="CharacterBody2D" parent="ent"]
-z_index = 1
 position = Vector2(230, 187)
 script = ExtResource("5_glogr")
 
@@ -74,14 +73,14 @@ shape = SubResource("RectangleShape2D_dl3bc")
 position = Vector2(100, -1)
 shape = SubResource("RectangleShape2D_b8slc")
 
-[node name="Placeholder" type="Sprite2D" parent="ent/Entidad"]
+[node name="Placeholder" type="Sprite2D" parent="ent/Entidad" groups=["repit"]]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_fcvis")
 position = Vector2(-0.5, -3)
 scale = Vector2(0.146484, 0.160156)
 texture = ExtResource("7_kb5do")
 
-[node name="Placeholder2" type="Sprite2D" parent="ent/Entidad"]
+[node name="Placeholder2" type="Sprite2D" parent="ent/Entidad" groups=["repit"]]
 texture_repeat = 3
 material = SubResource("ShaderMaterial_dn1qr")
 position = Vector2(100, -1.5)
@@ -91,12 +90,11 @@ texture = ExtResource("7_kb5do")
 [node name="el" type="Node2D" parent="."]
 
 [node name="Elemento" type="StaticBody2D" parent="el"]
-z_index = 1
 position = Vector2(400, 370)
 script = ExtResource("6_h4pds")
 metadata/_edit_group_ = true
 
-[node name="Placeholder" type="Sprite2D" parent="el/Elemento"]
+[node name="Placeholder" type="Sprite2D" parent="el/Elemento" groups=["invert"]]
 material = SubResource("ShaderMaterial_e6iya")
 position = Vector2(-1.68681e-05, 0.500011)
 scale = Vector2(0.199219, 0.0410156)

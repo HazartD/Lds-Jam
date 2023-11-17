@@ -1,4 +1,6 @@
 ,es,en
+me,"*Me fui corriendo*","*I ran away*"
+no,Nop,Nop
 ask1,¿Que hare?,What will I do?
 amenos,Pase un rato vergeando eso,I spent some time beating that up.
 he,El,He
@@ -6,7 +8,7 @@ she,Ella,She
 fuck,fuck,fuck
 d1,"Oye, niña","Hey, kid"
 r1,No me le acercaré denuevo,I won't go near him again
-ad1,,
+r2,"Nada anormal, sabor feo, incomodidad, y esas cosas,nothing abnormal","Bad taste, discomfort, and stuff"
 d2,Hace lo que te diga y todo irá bien,Do what I tell you and everything will be fine
 d3,shupa esto,suck this
 i1,"Elizabeth, yo que tu no le haria caso","Elizabeth, if I were you, I wouldn't pay attention to him."
@@ -18,12 +20,12 @@ d4,"Hija de mil puta","You, daughter of a thousand bitches"
 d5,Más te vale que corras,You better run
 op2,Acercarse a ella,Get closer to her
 i4,Bien,well
-ai4,,
+ai4,Tantos idiomas y solo respondes con putazos,So many languages and you only respond with death
 i5,toma esto y ve a jugar por ahí,take this and go play around
-ai5,,
 op3,chuparselo,suck it
 i6,"no mija, no","not my child, not"
 i7,y tan bien que estabas yendo,and you were doing so well
+i8,No te preocupes mas,Do not care anymore
 d6,"*Te jala la cabeza y sientes algo feo*","*He pulls your head and you feel something ugly*"
-d7,nunca serás nadie,you will never be anyone
+d7,"Nomas para eso sirves, pedazo de basura","That's what you're good for, you piece of trash"
 menos,No debi ver eso,I shouldn't have seen that

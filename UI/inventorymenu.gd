@@ -46,7 +46,7 @@ func _on_opciones_button_down():
 
 
 func add_items():
-	for i in Progresos.inven:
+	for i in Progresos.progresion["inven"]:
 		$Control/HBC/SC/IL.add_item(tr(str(i)),load(img[i]))
 
 
