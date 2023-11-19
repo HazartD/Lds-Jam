@@ -1,14 +1,13 @@
 extends CanvasLayer
 const opcion=preload("res://UI/opciones.tscn")
 var opci:bool=false
-const img:PackedStringArray=["res://placeholder.png","res://img/fondo nivel/cabra_test.jpg","res://placeholder.png","res://img/fondo nivel/cabra_test.jpg"]
+const img:PackedStringArray=["res://placeholder.png","res://img/fondo nivel/cabra_test.jpg","res://placeholder.png","res://img/fondo nivel/cabra_test.jpg","res://placeholder.png"]
 func _ready():
 	$Control/HBC/VBC/guardar.grab_focus()
 	get_tree().set_pause(true)
 	add_items()
 	for child in get_tree().get_nodes_in_group("boton"):
 		child.focus_entered.connect(func(): get_node("/root/UiSong/focus").play())
-		child.mouse_entered.connect(func(): get_node("/root/UiSong/focus").play())
 		$Control/Label.text=str(Progresos.save())
 
 

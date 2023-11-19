@@ -27,7 +27,6 @@ func cam():
 	p.position=$Marker2D.position
 
 func _on_entidad_interaccion():
-	Seales.moverte=false
 	if Progresos.mode==0:
 		if !Progresos.hecho["cabra"].has(hechos.test):
 			Progresos.hecho["cabra"].append(hechos.test)
@@ -54,7 +53,7 @@ func _on_entidad_interaccion():
 				await D.FIN
 				D.metertexto(["...","no","me"])
 			await D.FIN
-			Seales.moverte=true
+	
 	else:
 		if !Progresos.hecho["cabra"].has(hechos.test):
 			Progresos.hecho["cabra"].append(hechos.test)
@@ -71,7 +70,7 @@ func _on_entidad_interaccion():
 				D.fadein()
 				D.opcion({"aop1"=op2,"op3"=op3},"ask1")
 		await D.FIN
-		Seales.moverte=true
+
 
 func op1():
 	Progresos.progresion["inven"].append(Progresos.Objetos.PITO)
@@ -80,7 +79,6 @@ func op1():
 	print_data()
 	D.metertexto(["d4","d5"],"he")
 	await D.FIN
-	Seales.moverte=true
 func op2():
 	print_data()
 	$ent/Entidad/CollisionShape2D.queue_free()
@@ -93,7 +91,6 @@ func op2():
 		D.metertexto(["ai4","i7"],"she")
 		Progresos.progresion["violence"]+=1
 	await D.FIN
-	Seales.moverte=true
 func op3():
 	if Progresos.mode==0:
 		Progresos.progresion["sumicion"]+=1
@@ -110,13 +107,11 @@ func op3():
 		Progresos.hecho["cabra"].append(hechos.prosti)
 		D.metertexto(["r2"])
 	await D.FIN
-	Seales.moverte=true
 
 
 
 
 func _on_elemento_interaccion():
-	Seales.moverte=false
 	if Progresos.mode==0:
 		Progresos.progresion["cordura"]-=1
 		D.metertexto(["","menos"])
@@ -125,4 +120,3 @@ func _on_elemento_interaccion():
 		D.metertexto(["","amenos"])
 	await D.FIN
 	$player.update_bar()
-	Seales.moverte=true

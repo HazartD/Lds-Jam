@@ -24,7 +24,7 @@ func update_bar():
 	if Progresos.progresion["Nlife"]>=10:
 		Progresos.dia_es+=1
 		Seales.DIA_CAMBIO.emit()
-		print(Progresos.dia_es)
+	print("dia ",Progresos.dia_es)
 
 
 func _process(_delta):

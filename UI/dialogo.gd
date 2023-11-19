@@ -2,6 +2,7 @@ extends CanvasLayer
 signal FIN
 
 func fadein():
+	Seales.moverte=false
 	var inout= get_tree().create_tween()
 	inout.tween_property($Control,"modulate:a",1,0.5)
 	$Control/B.set_focus_mode(Control.FOCUS_ALL)
@@ -12,6 +13,7 @@ func fadeout():
 	inout.tween_property($Control,"modulate:a",0,0.5)
 	$Control/B.visible=false
 	$Control/B.set_focus_mode(Control.FOCUS_NONE)
+	Seales.moverte=true
 func opsele():
 	for op in $Control/O.get_children():op.queue_free()
 	fadeout()
@@ -30,6 +32,7 @@ func metertexto(dial:PackedStringArray,namedial:String="Elizabeth"):
 
 
 func opcion(opciones:Dictionary,pregunta:String="",nameop:String="Elizabeth"):
+	fadein()
 	$Control/C/TT/TN/N.text=nameop
 	$Control/C/TT/T.text=pregunta
 	$Control/C/TT/T.visible_ratio=1.0
