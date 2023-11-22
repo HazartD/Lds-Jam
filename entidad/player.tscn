@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://uw658mf4gof0"]
+[gd_scene load_steps=8 format=3 uid="uid://uw658mf4gof0"]
 
 [ext_resource type="Script" path="res://clases/player.gd" id="1_w74lh"]
 [ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="2_ofe8k"]
 [ext_resource type="PackedScene" uid="uid://024trakey1jn" path="res://UI/in_game.tscn" id="3_j2fsm"]
+[ext_resource type="Script" path="res://entidad/chaque.gd" id="3_yfb6b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iys8u"]
 
@@ -37,6 +38,9 @@ target_position = Vector2(0, 11)
 sprite_frames = SubResource("SpriteFrames_1hp7a")
 animation = &"idel"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Cam" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("3_yfb6b")
 
 [node name="in_game" parent="." instance=ExtResource("3_j2fsm")]

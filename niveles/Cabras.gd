@@ -11,7 +11,6 @@ func _ready():
 		$ent/Entidad/CollisionShape2D.queue_free()
 		$ent/Entidad/Placeholder.queue_free()
 
-
 func _process(_delta):
 	num+=1
 	$Label.text=str(num)
@@ -42,9 +41,8 @@ func _on_entidad_interaccion():
 		else:
 			if Progresos.progresion["inven"].has(Progresos.Objetos.PITO):
 				D.metertexto(["","r1"])
-				Progresos.progresion["Nlife"]+=1
 				await D.FIN
-				$player.update_bar()
+				$player.update_bar(1)
 			if Progresos.progresion["inven"].has(Progresos.Objetos.PELOTA):
 				D.metertexto(["","i8"],"she")
 				await D.FIN
@@ -75,10 +73,10 @@ func _on_entidad_interaccion():
 func op1():
 	Progresos.progresion["inven"].append(Progresos.Objetos.PITO)
 	Progresos.progresion["neurosis"]+=1
-	Progresos.progresion["Nlife"]+=1
 	print_data()
 	D.metertexto(["d4","d5"],"he")
 	await D.FIN
+	$player.update_bar(1)
 func op2():
 	print_data()
 	$ent/Entidad/CollisionShape2D.queue_free()
@@ -95,12 +93,11 @@ func op3():
 	if Progresos.mode==0:
 		Progresos.progresion["sumicion"]+=1
 		Progresos.progresion["inven"].append(Progresos.Objetos.TRAUMA)
-		Progresos.progresion["cordura"]-=1
 		print_data()
 		D.metertexto(["i6","i7"],"she")
 		await D.FIN
 		D.metertexto(["d6","d7"],"he")
-		$player.update_bar()
+		$player.update_bar(0)
 		await D.FIN
 		D.metertexto(["fuck"])
 	else:
@@ -113,10 +110,10 @@ func op3():
 
 func _on_elemento_interaccion():
 	if Progresos.mode==0:
-		Progresos.progresion["cordura"]-=1
+		$player.update_bar(0)
 		D.metertexto(["","menos"])
 	else:
-		Progresos.progresion["Nlife"]+=1
+		$player.update_bar(1)
 		D.metertexto(["","amenos"])
 	await D.FIN
-	$player.update_bar()
+	
