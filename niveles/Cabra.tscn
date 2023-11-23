@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://niveles/Cabras.gd" id="1_fj5la"]
 [ext_resource type="Texture2D" uid="uid://7jyf7jvwejkf" path="res://img/fondo nivel/cabra_test.jpg" id="2_8vgjk"]
 [ext_resource type="AudioStream" uid="uid://ddr365stosdws" path="res://sonido/Goat_Scenario_1.ogg" id="4_0k44m"]
-[ext_resource type="PackedScene" uid="uid://bg22mdljrdb40" path="res://UI/D.tscn" id="4_8ho8c"]
+[ext_resource type="PackedScene" uid="uid://bg22mdljrdb40" path="res://autoload/D.tscn" id="4_8ho8c"]
 [ext_resource type="AudioStream" uid="uid://t4umlh2gwxhs" path="res://sonido/Goat_Scenario_2.ogg" id="5_gj77c"]
 [ext_resource type="Script" path="res://clases/entidad.gd" id="5_glogr"]
 [ext_resource type="Script" path="res://clases/elemento.gd" id="6_h4pds"]

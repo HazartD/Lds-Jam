@@ -6,7 +6,7 @@ enum Objetos {PITO,TRAUMA,PELOTA,NOTA_CABRA,HEART}
 var mode:cambio_mode=cambio_mode.BEFORE
 var escenario:Escenarios=Escenarios.GOAT
 var dia_es:DIA=DIA.CERO
-var progresion:Dictionary={"InteraTotal":0,"Nlife":10,"cordura":10,"neurosis":0,"sumicion":0,"violence":0,"inven":[Objetos.NOTA_CABRA]}
+var progresion:Dictionary={"InteraTotal":0,"cordura":10,"neurosis":0,"sumicion":0,"violence":0,"inven":[Objetos.NOTA_CABRA]}
 var hecho:Dictionary={"cabra":[],"templo":[]}
 
 func save()->Dictionary:

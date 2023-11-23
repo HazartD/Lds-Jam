@@ -24,10 +24,11 @@ buses/default_bus_layout="res://sonido/default_bus_layout.tres"
 
 Seales="*res://autoload/seales.gd"
 Save="*res://autoload/save.gd"
-Config="*res://config.gd"
+Config="*res://autoload/config.gd"
 Progresos="*res://autoload/progresos.gd"
-UiSong="*res://sonido/sceneui/ui_song.tscn"
-D="*res://UI/D.tscn"
+UiSong="*res://autoload/ui_song.tscn"
+D="*res://autoload/D.tscn"
+Cambio="*res://autoload/cambio.tscn"
 
 [display]
 

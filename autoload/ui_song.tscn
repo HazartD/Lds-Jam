@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://coqol654apxxa"]
 
-[ext_resource type="Script" path="res://sonido/sceneui/ui_song.gd" id="1_jc6i1"]
+[ext_resource type="Script" path="res://autoload/ui_song.gd" id="1_jc6i1"]
 [ext_resource type="AudioStream" uid="uid://dyknvwwg8x1na" path="res://sonido/sfx/wind.mp3" id="1_scjhg"]
 [ext_resource type="AudioStream" uid="uid://y841elj3mioi" path="res://sonido/sfx/paper-tear.mp3" id="2_xvjrn"]
 [ext_resource type="AudioStream" uid="uid://dhyabox5hha0i" path="res://sonido/sfx/swing.mp3" id="3_8kb4m"]
@@ -20,3 +20,15 @@ bus = &"UI"
 [node name="celect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8kb4m")
 bus = &"UI"
+
+[node name="sfx" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="sfx"]

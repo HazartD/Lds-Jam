@@ -1,6 +1,5 @@
 class_name Player extends CharacterBody2D
 const menu=preload("res://UI/inventorymenu.tscn")
-const valuel:PackedStringArray=["cordura","Nlife"]
 @onready var ray:RayCast2D=$CollisionShape2D/RayCast2D
 const SPEED = 300.0
 @export_enum("IDELDOWN","IDELUP","IDELRIGHT","IDELLEFT","MOVIENDOSE") var Est_Act:int=0
@@ -16,27 +15,17 @@ func _ready():
 			ray.target_position.y=18
 			ray.rotation_degrees=90
 	$in_game/Control/cordura.value=Progresos.progresion["cordura"]
-	$in_game/Control/towake.value=Progresos.progresion["Nlife"]
 
-func update_bar(ind:int,val:int=1):
-	Progresos.progresion[valuel[ind]]-=val
-	print(valuel[ind],Progresos.progresion[valuel[ind]])
+func update_bar(val:int=1):
+	Progresos.progresion["cordura"]-=val
+	print("cordura",Progresos.progresion["cordura"])
 	$in_game/Control/cordura.value=Progresos.progresion["cordura"]
-	$in_game/Control/towake.value=Progresos.progresion["Nlife"]
 	if Progresos.progresion["cordura"] <= 0 and Progresos.mode==0:
 		Progresos.mode=Progresos.cambio_mode.AFTER
 		Seales.change.emit()
-		return
-	if Progresos.progresion["Nlife"]<=0:
-		Progresos.dia_es=Progresos.dia_es+1
-		Seales.DIA_CAMBIO.emit()
-		print("dia ",Progresos.dia_es)
-		return
-	var sha=(10.0/Progresos.progresion[valuel[ind]])*10.0
+	var sha=(10.0/Progresos.progresion["cordura"])*10.0
 	print(sha)
-	$Cam.shake(1.0,sha,sha)
-
-
+	if sha in range(10,100):$Cam.shake(1.0,sha,sha)
 
 func _physics_process(_delta):
 	if Seales.moverte:

@@ -42,7 +42,7 @@ func _on_entidad_interaccion():
 			if Progresos.progresion["inven"].has(Progresos.Objetos.PITO):
 				D.metertexto(["","r1"])
 				await D.FIN
-				$player.update_bar(1)
+				$player.update_bar()
 			if Progresos.progresion["inven"].has(Progresos.Objetos.PELOTA):
 				D.metertexto(["","i8"],"she")
 				await D.FIN
@@ -76,7 +76,7 @@ func op1():
 	print_data()
 	D.metertexto(["d4","d5"],"he")
 	await D.FIN
-	$player.update_bar(1)
+	$player.update_bar()
 func op2():
 	print_data()
 	$ent/Entidad/CollisionShape2D.queue_free()
@@ -97,7 +97,7 @@ func op3():
 		D.metertexto(["i6","i7"],"she")
 		await D.FIN
 		D.metertexto(["d6","d7"],"he")
-		$player.update_bar(0)
+		$player.update_bar()
 		await D.FIN
 		D.metertexto(["fuck"])
 	else:
@@ -107,13 +107,12 @@ func op3():
 
 
 
-
 func _on_elemento_interaccion():
 	if Progresos.mode==0:
-		$player.update_bar(0)
 		D.metertexto(["","menos"])
+		$player.update_bar()
 	else:
-		$player.update_bar(1)
 		D.metertexto(["","amenos"])
-	await D.FIN
-	
+		await D.FIN
+		Seales.dia_in()
+

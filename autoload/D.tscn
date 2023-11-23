@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bg22mdljrdb40"]
 
-[ext_resource type="Script" path="res://UI/dialogo.gd" id="1_lt8c8"]
+[ext_resource type="Script" path="res://autoload/dialogo.gd" id="1_gd21n"]
 [ext_resource type="Texture2D" uid="uid://y1nvw4ortr0" path="res://icon.svg" id="1_xjndq"]
 [ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="3_1ynr4"]
 [ext_resource type="FontFile" uid="uid://dfe7yfxxehdsx" path="res://Comic_sans_MS.ttf" id="3_i7gn4"]
@@ -24,7 +24,8 @@ action = &"ui_accept"
 events = [SubResource("InputEventAction_w43sx")]
 
 [node name="D" type="CanvasLayer"]
-script = ExtResource("1_lt8c8")
+layer = 10
+script = ExtResource("1_gd21n")
 
 [node name="Control" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
