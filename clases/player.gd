@@ -45,29 +45,6 @@ func _physics_process(_delta):
 	velocity=input_vector*SPEED
 	move_and_slide()
 
-#func _process(_delta):
-#	if Seales.moverte:
-#		if Input.is_action_pressed("ui_up"):
-#			$gil.play("up")
-#			moviendo=true
-#		elif Input.is_action_pressed("ui_down"):
-#			$gil.play("down")
-#			moviendo=true
-#		elif Input.is_action_pressed("ui_right"):
-#			$gil.play("right")
-#			moviendo=true
-#		elif Input.is_action_pressed("ui_left"):
-#			$gil.play("letf")
-#			moviendo=true
-#	if Input.is_action_just_released("ui_up"):
-#		moviendo=false
-#	if Input.is_action_just_released("ui_down"):
-#		moviendo=false
-#	if Input.is_action_just_released("ui_right"):
-#		moviendo=false
-#	if Input.is_action_just_released("ui_left"):
-#		moviendo=false
-
 
 func _input(event):
 	if event.is_action_released("ui_down"): moviendo=false
