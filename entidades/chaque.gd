@@ -1,5 +1,5 @@
 extends Camera2D
-
+#const initial_position
 var _duration:float = 0.0
 var _period_in_ms:float = 0.0
 var _amplitude :float= 0.0
@@ -49,3 +49,4 @@ func shake(duration, frequency, amplitude):
 	# Reset previous offset, if any.
 	set_offset(get_offset() - _last_offset)
 	_last_offset = Vector2(0, 0)
+

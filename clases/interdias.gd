@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 func _ready():
 	$Button.grab_focus()

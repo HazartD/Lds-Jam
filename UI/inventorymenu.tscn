@@ -3,12 +3,8 @@
 [ext_resource type="Script" path="res://UI/inventorymenu.gd" id="1_vigc1"]
 [ext_resource type="Theme" uid="uid://b7ageewfyhi1d" path="res://UI/ui.tres" id="2_yoc4s"]
 
-[node name="inventorymenu" type="CanvasLayer"]
+[node name="Control" type="Control"]
 process_mode = 3
-layer = 5
-script = ExtResource("1_vigc1")
-
-[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,8 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_yoc4s")
+script = ExtResource("1_vigc1")
 
-[node name="HBC" type="HBoxContainer" parent="Control"]
+[node name="HBC" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,38 +26,34 @@ offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBC" type="VBoxContainer" parent="Control/HBC"]
+[node name="VBC" type="VBoxContainer" parent="HBC"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 focus_neighbor_right = NodePath("../SC/IL")
 
-[node name="guardar" type="Button" parent="Control/HBC/VBC" groups=["boton"]]
+[node name="guardar" type="Button" parent="HBC/VBC" groups=["boton"]]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 text = "save"
 
-[node name="opciones" type="Button" parent="Control/HBC/VBC" groups=["boton"]]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-text = "config"
-
-[node name="mainmenu" type="Button" parent="Control/HBC/VBC" groups=["boton"]]
+[node name="mainmenu" type="Button" parent="HBC/VBC" groups=["boton"]]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 text = "exit"
 
-[node name="VSeparator" type="VSeparator" parent="Control/HBC"]
-custom_minimum_size = Vector2(30, 0)
+[node name="opciones" type="Button" parent="HBC/VBC" groups=["boton"]]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+text = "config"
 
-[node name="SC" type="ScrollContainer" parent="Control/HBC"]
+[node name="SC" type="ScrollContainer" parent="HBC"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.65
 follow_focus = true
 
-[node name="IL" type="ItemList" parent="Control/HBC/SC"]
+[node name="IL" type="ItemList" parent="HBC/SC"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -68,7 +61,11 @@ allow_rmb_select = true
 max_text_lines = 2
 fixed_icon_size = Vector2i(150, 150)
 
-[node name="Label" type="Label" parent="Control"]
+[node name="VSeparator" type="VSeparator" parent="."]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -82,7 +79,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 autowrap_mode = 3
 
-[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
-[connection signal="button_down" from="Control/HBC/VBC/guardar" to="." method="_on_guardar_button_down"]
-[connection signal="button_down" from="Control/HBC/VBC/opciones" to="." method="_on_opciones_button_down"]
-[connection signal="button_down" from="Control/HBC/VBC/mainmenu" to="." method="_on_button_button_down"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="button_down" from="HBC/VBC/guardar" to="." method="_on_guardar_button_down"]
+[connection signal="button_down" from="HBC/VBC/mainmenu" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="HBC/VBC/opciones" to="." method="_on_opciones_button_down"]

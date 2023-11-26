@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbhk6bws5liom"]
+
+[ext_resource type="PackedScene" uid="uid://nr1i0pw75jtq" path="res://autoload/cambio.tscn" id="1_jqsil"]
+[ext_resource type="PackedScene" uid="uid://dtah6v33ftp5u" path="res://UI/menuinicio.tscn" id="2_6kbrj"]
+
+[node name="main" type="Node2D"]
+
+[node name="Cambio" parent="." instance=ExtResource("1_jqsil")]
+
+[node name="Menuinicio" parent="." instance=ExtResource("2_6kbrj")]

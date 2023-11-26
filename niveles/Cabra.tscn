@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://fkls0lwl8skh"]
+[gd_scene load_steps=15 format=3 uid="uid://fkls0lwl8skh"]
 
 [ext_resource type="Script" path="res://niveles/Cabras.gd" id="1_fj5la"]
 [ext_resource type="Texture2D" uid="uid://7jyf7jvwejkf" path="res://img/fondo nivel/cabra_test.jpg" id="2_8vgjk"]
 [ext_resource type="AudioStream" uid="uid://ddr365stosdws" path="res://sonido/Goat_Scenario_1.ogg" id="4_0k44m"]
-[ext_resource type="PackedScene" uid="uid://bg22mdljrdb40" path="res://autoload/D.tscn" id="4_8ho8c"]
 [ext_resource type="AudioStream" uid="uid://t4umlh2gwxhs" path="res://sonido/Goat_Scenario_2.ogg" id="5_gj77c"]
 [ext_resource type="Script" path="res://clases/entidad.gd" id="5_glogr"]
 [ext_resource type="Script" path="res://clases/elemento.gd" id="6_h4pds"]
@@ -38,8 +37,6 @@ material = SubResource("ShaderMaterial_n7tso")
 position = Vector2(1439.65, -1406.22)
 scale = Vector2(1.51882, 1.1182)
 texture = ExtResource("2_8vgjk")
-
-[node name="D" parent="." instance=ExtResource("4_8ho8c")]
 
 [node name="Label" type="TextEdit" parent="."]
 offset_left = 591.0
@@ -103,7 +100,7 @@ texture = ExtResource("7_kb5do")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="el/Elemento"]
 shape = SubResource("RectangleShape2D_tpgmf")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="palplayer" type="Marker2D" parent="."]
 position = Vector2(785, 350)
 
 [connection signal="interaccion" from="ent/Entidad" to="." method="_on_entidad_interaccion"]

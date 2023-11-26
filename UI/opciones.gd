@@ -9,7 +9,7 @@ func _ready():
 	elif DisplayServer.window_get_mode()==3:$MC/HB/accion/full.button_pressed=true
 	for child in get_tree().get_nodes_in_group("boton"):
 		child.focus_entered.connect(func(): get_node("/root/UiSong/focus").play())
-	
+		child.mouse_entered.connect(func():child.grab_focus())
 func _input(event):
 	if event.is_action("ui_cancel"):
 		queue_free()

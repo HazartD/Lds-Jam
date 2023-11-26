@@ -9,7 +9,10 @@ action = &"ui_cancel"
 [sub_resource type="Shortcut" id="Shortcut_8kmdn"]
 events = [SubResource("InputEventAction_0pmsx")]
 
-[node name="Menuinicio" type="Control"]
+[node name="menuinicio" type="CanvasLayer"]
+layer = 10
+
+[node name="Menuinicio" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +22,7 @@ grow_vertical = 2
 theme = ExtResource("1_86xs0")
 script = ExtResource("1_r8e0t")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="Menuinicio"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -35,13 +38,13 @@ grow_horizontal = 2
 grow_vertical = 2
 follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menuinicio/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_neighbor_bottom = NodePath("../../Button")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="Menuinicio"]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -59,7 +62,7 @@ disabled = true
 shortcut = SubResource("Shortcut_8kmdn")
 text = "back"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menuinicio"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,33 +76,33 @@ offset_bottom = 206.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Cargar" type="Button" parent="VBoxContainer" groups=["boton"]]
+[node name="Cargar" type="Button" parent="Menuinicio/VBoxContainer" groups=["boton"]]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../nueva")
 text = "conti"
 
-[node name="nueva" type="Button" parent="VBoxContainer" groups=["boton"]]
+[node name="nueva" type="Button" parent="Menuinicio/VBoxContainer" groups=["boton"]]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Cargar")
 focus_neighbor_bottom = NodePath("../options")
 text = "nuev"
 
-[node name="options" type="Button" parent="VBoxContainer" groups=["boton"]]
+[node name="options" type="Button" parent="Menuinicio/VBoxContainer" groups=["boton"]]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 focus_neighbor_top = NodePath("../nueva")
 focus_neighbor_bottom = NodePath("../exit")
 text = "config"
 
-[node name="exit" type="Button" parent="VBoxContainer" groups=["boton"]]
+[node name="exit" type="Button" parent="Menuinicio/VBoxContainer" groups=["boton"]]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 focus_neighbor_top = NodePath("../options")
 text = "exit"
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="Menuinicio"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,7 +116,7 @@ offset_bottom = 59.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="es" type="Button" parent="Panel" groups=["boton"]]
+[node name="es" type="Button" parent="Menuinicio/Panel" groups=["boton"]]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -124,7 +127,7 @@ offset_bottom = -29.0
 grow_vertical = 2
 text = "Español"
 
-[node name="en" type="Button" parent="Panel" groups=["boton"]]
+[node name="en" type="Button" parent="Menuinicio/Panel" groups=["boton"]]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -138,10 +141,10 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "English"
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="VBoxContainer/Cargar" to="." method="_on_nueva_partida_2_button_down"]
-[connection signal="button_down" from="VBoxContainer/nueva" to="." method="_on_nueva_partida_button_down"]
-[connection signal="button_down" from="VBoxContainer/options" to="." method="_on_options_button_down"]
-[connection signal="button_down" from="VBoxContainer/exit" to="." method="_on_exit_button_down"]
-[connection signal="button_down" from="Panel/es" to="." method="_on_es_down"]
-[connection signal="button_down" from="Panel/en" to="." method="_on_en_down"]
+[connection signal="button_down" from="Menuinicio/Button" to="Menuinicio" method="_on_button_button_down"]
+[connection signal="button_down" from="Menuinicio/VBoxContainer/Cargar" to="Menuinicio" method="_on_nueva_partida_2_button_down"]
+[connection signal="button_down" from="Menuinicio/VBoxContainer/nueva" to="Menuinicio" method="_on_nueva_partida_button_down"]
+[connection signal="button_down" from="Menuinicio/VBoxContainer/options" to="Menuinicio" method="_on_options_button_down"]
+[connection signal="button_down" from="Menuinicio/VBoxContainer/exit" to="Menuinicio" method="_on_exit_button_down"]
+[connection signal="button_down" from="Menuinicio/Panel/es" to="." method="_on_es_down"]
+[connection signal="button_down" from="Menuinicio/Panel/en" to="." method="_on_en_down"]

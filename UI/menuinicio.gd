@@ -1,7 +1,12 @@
 extends Control
 const botoncargar= preload("res://UI/cargar.tscn")
 const option=preload("res://UI/opciones.tscn")
+const player= preload("res://entidades/player.tscn")
+const primer=preload("res://niveles/Cabra.tscn")
 var dir=DirAccess.open("user://HazartD/7DNA/saves")
+@onready var colo=get_node("/root/main/Cambio/solid")
+@onready var lay=get_node("/root/main/Cambio")
+
 
 func _ready():
 	Config.carg()
@@ -13,10 +18,18 @@ func _ready():
 		$Panel/en.grab_focus()
 	for child in get_tree().get_nodes_in_group("boton"):
 		child.focus_entered.connect(func(): get_node("/root/UiSong/focus").play())
+		child.mouse_entered.connect(func():child.grab_focus())
+	print("view",get_viewport().position)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):if $Button.disabled==false: _on_button_button_down()
 
+func dia_in():
+	lay.set_layer(11)
+	colo.color=Color(0,0,0,0)
+	var t=get_tree().create_tween()
+	t.tween_property(colo,"color:a",1,3)
+	await t.finished
 
 func _on_nueva_partida_button_down():
 	var parti:int=0
@@ -25,8 +38,14 @@ func _on_nueva_partida_button_down():
 		parti+=1
 		Save.NombrePartida="user://HazartD/7DNA/saves/Slot%s.txt" %parti
 	print(Save.NombrePartida)
-	get_tree().change_scene_to_file("res://niveles/Cabra.tscn")
-	Seales.ESCENA_CAMBIO.emit()
+	await dia_in()
+	var p=player.instantiate()
+	get_parent().add_sibling(p)
+	var pr=primer.instantiate()
+	get_parent().add_sibling(pr)
+	get_parent().queue_free()
+	Seales.dia_out()
+
 
 
 func _on_nueva_partida_2_button_down():
@@ -74,8 +93,6 @@ func selec_locale(locale:String):
 	$Panel.queue_free()
 	$VBoxContainer.show()
 	hay_archi()
-
-
 
 func hay_archi():
 	var files=dir.get_files()

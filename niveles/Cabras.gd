@@ -1,10 +1,10 @@
 extends escenario
 var num:int=0
-const player= preload("res://entidad/player.tscn")
 enum hechos{test,prosti}
 
 
 func _ready():
+	set_play()
 	$before.finished.connect(func():$before.play())
 	$Label.text=str(num)
 	if Progresos.progresion["inven"].has(Progresos.Objetos.TRAUMA) or Progresos.progresion["inven"].has(Progresos.Objetos.HEART):
@@ -19,11 +19,6 @@ func _process(_delta):
 func save():
 	var saver={"parent":get_parent().get_path(),"filename":get_scene_file_path(),"num":num}
 	return saver
-
-func cam():
-	var p=player.instantiate()
-	add_child(p)
-	p.position=$Marker2D.position
 
 func _on_entidad_interaccion():
 	if Progresos.mode==0:
@@ -42,7 +37,7 @@ func _on_entidad_interaccion():
 			if Progresos.progresion["inven"].has(Progresos.Objetos.PITO):
 				D.metertexto(["","r1"])
 				await D.FIN
-				$player.update_bar()
+				$"../player".update_bar()
 			if Progresos.progresion["inven"].has(Progresos.Objetos.PELOTA):
 				D.metertexto(["","i8"],"she")
 				await D.FIN
@@ -68,15 +63,13 @@ func _on_entidad_interaccion():
 				D.fadein()
 				D.opcion({"aop1"=op2,"op3"=op3},"ask1")
 		await D.FIN
-
-
 func op1():
 	Progresos.progresion["inven"].append(Progresos.Objetos.PITO)
 	Progresos.progresion["neurosis"]+=1
 	print_data()
 	D.metertexto(["d4","d5"],"he")
 	await D.FIN
-	$player.update_bar()
+	$"../player".update_bar()
 func op2():
 	print_data()
 	$ent/Entidad/CollisionShape2D.queue_free()
@@ -91,13 +84,13 @@ func op2():
 	await D.FIN
 func op3():
 	if Progresos.mode==0:
-		Progresos.progresion["sumicion"]+=1
+		Progresos.progresion["voluntad"]-=1
 		Progresos.progresion["inven"].append(Progresos.Objetos.TRAUMA)
 		print_data()
 		D.metertexto(["i6","i7"],"she")
 		await D.FIN
 		D.metertexto(["d6","d7"],"he")
-		$player.update_bar()
+		$"../player".update_bar()
 		await D.FIN
 		D.metertexto(["fuck"])
 	else:
@@ -105,12 +98,10 @@ func op3():
 		D.metertexto(["r2"])
 	await D.FIN
 
-
-
 func _on_elemento_interaccion():
 	if Progresos.mode==0:
 		D.metertexto(["","menos"])
-		$player.update_bar()
+		$"../player".update_bar()
 	else:
 		D.metertexto(["","amenos"])
 		await D.FIN

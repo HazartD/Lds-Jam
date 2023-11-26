@@ -3,16 +3,23 @@ func _init():
 	Seales.ESCENA_CAMBIO.connect(cam)
 	Seales.change.connect(after)
 	Seales.DIA_CAMBIO.connect(diacam)
-func _ready():
-	after()
+func set_play():
+	$"../player".position = $palplayer.position
 	
-func cam():
-	get_tree().change_scene_to_file(Seales.esenes[Seales.nex])
-func diacam():
-	get_tree().change_scene_to_file("res://UI/interdias.tscn")
 func after():
 	pass
-func print_data():
-	print("inentari:  "+str(Progresos.progresion["inven"]))
-	print("progre:  "+str(Progresos.progresion))
 
+func cam():
+	var li=Seales.liminal.instantiate()
+	add_sibling(li)
+	queue_free()
+
+func diacam():
+	var nex= load("res://clases/interdias.tscn")
+	var next=nex.instantiate()
+	add_sibling(next)
+	get_node("/root/main/player").queue_free()
+	queue_free()
+
+func print_data():
+	print("progre:  "+str(Progresos.progresion))

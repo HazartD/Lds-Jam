@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cee7flbwij5mt"]
+
+[ext_resource type="Script" path="res://clases/liminal.gd" id="1_rw1aq"]
+
+[node name="liminal" type="Node"]
+script = ExtResource("1_rw1aq")
