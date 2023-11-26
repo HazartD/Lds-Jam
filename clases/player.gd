@@ -2,7 +2,8 @@ class_name Player extends CharacterBody2D
 const menu=preload("res://UI/inventorymenu.tscn")
 @onready var ray:RayCast2D=$CollisionShape2D/RayCast2D
 const SPEED = 300.0
-var moviendo:bool=false
+var input_vector = Vector2.ZERO
+
 @export_enum("DOWN","UP","RIGHT","LEFT") var Est_Act=0:
 	set(value):
 		print("estado era ",Est_Act)
@@ -36,7 +37,6 @@ func update_bar(val:int=1):
 	if sha in range(10,100):$Cam.shake(1.0,sha,sha)
 
 func _physics_process(_delta):
-	var input_vector = Vector2.ZERO
 	if Seales.moverte:
 		input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -47,10 +47,6 @@ func _physics_process(_delta):
 
 
 func _input(event):
-	if event.is_action_released("ui_down"): moviendo=false
-	if event.is_action_released("ui_right"): moviendo=false
-	if event.is_action_released("ui_up"): moviendo=false
-	if event.is_action_released("ui_left"): moviendo=false
 	if Seales.moverte:
 		if event.is_action_pressed("ui_accept"):
 			if ray.is_colliding():if ray.get_collider().has_signal("interaccion"):ray.get_collider().interaccion.emit()
@@ -59,26 +55,22 @@ func _input(event):
 			ray.target_position.y=11
 			Est_Act=0
 			$gil.play("down")
-			moviendo=true
 		if event.is_action_pressed("ui_up"):
 			ray.rotation_degrees=180
 			ray.target_position.y=11
 			Est_Act=1
 			$gil.play("up")
-			moviendo=true
 		elif event.is_action_pressed("ui_right"):
 			ray.rotation_degrees=270
 			ray.target_position.y=18
 			Est_Act=2
 			$gil.play("right")
-			moviendo=true
 		elif event.is_action_pressed("ui_left"):
 			ray.rotation_degrees=90
 			ray.target_position.y=18
 			Est_Act=3
 			$gil.play("letf")
-			moviendo=true
-	
+
 
 func save():
 	var saver={"parent":get_parent().get_path(),
@@ -90,10 +82,10 @@ func save():
 
 
 func _on_gil_animation_finished():
-	if moviendo:$gil.play($gil.animation)
-	if !moviendo:
+	if input_vector==Vector2.ZERO:
 		match  Est_Act:
 			0:$gil.play("down_idle")
 			1:$gil.play("up_idle")
 			2:$gil.play("right_idle")
 			3:$gil.play("letf_idle")
+	else:$gil.play($gil.animation)
