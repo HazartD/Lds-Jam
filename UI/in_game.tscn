@@ -4,7 +4,7 @@
 
 [node name="in_game" type="CanvasLayer"]
 process_mode = 3
-layer = 10
+layer = 4
 
 [node name="cordura" type="ProgressBar" parent="."]
 self_modulate = Color(1, 0, 0, 1)

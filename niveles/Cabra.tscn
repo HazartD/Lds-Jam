@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://fkls0lwl8skh"]
+[gd_scene load_steps=16 format=3 uid="uid://fkls0lwl8skh"]
 
 [ext_resource type="Script" path="res://niveles/Cabras.gd" id="1_fj5la"]
 [ext_resource type="Texture2D" uid="uid://7jyf7jvwejkf" path="res://img/fondo nivel/cabra_test.jpg" id="2_8vgjk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://clases/entidad.gd" id="5_glogr"]
 [ext_resource type="Script" path="res://clases/elemento.gd" id="6_h4pds"]
 [ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="7_kb5do"]
+[ext_resource type="PackedScene" uid="uid://uw658mf4gof0" path="res://entidades/player.tscn" id="8_uhcwa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n7tso"]
 
@@ -102,6 +103,9 @@ shape = SubResource("RectangleShape2D_tpgmf")
 
 [node name="palplayer" type="Marker2D" parent="."]
 position = Vector2(785, 350)
+
+[node name="player" parent="." instance=ExtResource("8_uhcwa")]
+position = Vector2(670, 339)
 
 [connection signal="interaccion" from="ent/Entidad" to="." method="_on_entidad_interaccion"]
 [connection signal="interaccion" from="el/Elemento" to="." method="_on_elemento_interaccion"]

@@ -1,8 +1,7 @@
 extends Control
 const botoncargar= preload("res://UI/cargar.tscn")
 const option=preload("res://UI/opciones.tscn")
-const player= preload("res://entidades/player.tscn")
-const primer=preload("res://niveles/Cabra.tscn")
+const primer=preload("res://clases/interdias.tscn")
 var dir=DirAccess.open("user://HazartD/7DNA/saves")
 @onready var colo=get_node("/root/main/Cambio/solid")
 @onready var lay=get_node("/root/main/Cambio")
@@ -28,7 +27,7 @@ func dia_in():
 	lay.set_layer(11)
 	colo.color=Color(0,0,0,0)
 	var t=get_tree().create_tween()
-	t.tween_property(colo,"color:a",1,3)
+	t.tween_property(colo,"color:a",1,2)
 	await t.finished
 
 func _on_nueva_partida_button_down():
@@ -39,8 +38,6 @@ func _on_nueva_partida_button_down():
 		Save.NombrePartida="user://HazartD/7DNA/saves/Slot%s.txt" %parti
 	print(Save.NombrePartida)
 	await dia_in()
-	var p=player.instantiate()
-	get_parent().add_sibling(p)
 	var pr=primer.instantiate()
 	get_parent().add_sibling(pr)
 	get_parent().queue_free()

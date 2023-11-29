@@ -4,7 +4,7 @@ enum hechos{test,prosti}
 
 
 func _ready():
-	set_play()
+#	set_play()
 	$before.finished.connect(func():$before.play())
 	$Label.text=str(num)
 	if Progresos.progresion["inven"].has(Progresos.Objetos.TRAUMA) or Progresos.progresion["inven"].has(Progresos.Objetos.HEART):
@@ -29,7 +29,6 @@ func _on_entidad_interaccion():
 			await D.FIN
 			D.metertexto(["i1","i2","i3"],"she")
 			await D.FIN
-			D.fadein()
 			D.opcion({"op1"=op1,"op2"=op2,"op3"=op3},"ask1")
 		elif Progresos.hecho["cabra"].has(hechos.prosti):
 			pass
@@ -52,7 +51,6 @@ func _on_entidad_interaccion():
 			Progresos.hecho["cabra"].append(hechos.test)
 			D.metertexto(["","d3"],"he")
 			await D.FIN
-			D.fadein()
 			D.opcion({"aop1"=op2,"op3"=op3},"ask1")
 		else:
 			if Progresos.progresion["inven"].has(Progresos.Objetos.HEART):
@@ -60,7 +58,6 @@ func _on_entidad_interaccion():
 			if Progresos.hecho["cabra"].has(hechos.prosti):
 				D.metertexto(["","d3"],"he")
 				await D.FIN
-				D.fadein()
 				D.opcion({"aop1"=op2,"op3"=op3},"ask1")
 		await D.FIN
 func op1():
