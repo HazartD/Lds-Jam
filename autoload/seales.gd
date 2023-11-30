@@ -23,21 +23,23 @@ func after():
 
 func dia_in():
 	Seales.moverte=false
+	lay.set_visible(true)
 	lay.set_layer(11)
 	colo.color=Color(0,0,0,0)
 	var t=get_tree().create_tween()
 	t.tween_property(colo,"color:a",1,2)
-	print(Progresos.dia_es)
+	print("dias fue",Progresos.dia_es)
 	Progresos.dia_es=(Progresos.dia_es+1 as Progresos.DIA)
+	print("dia es",Progresos.dia_es)
 	await t.finished
-	print(Progresos.dia_es)
 #	nex=randi_range(0,4)
 	DIA_CAMBIO.emit()
 func dia_out():
 	await get_tree().create_timer(1).timeout
+	lay.set_visible(false)
 	var day=load("res://clases/interdias.tscn")
-	var next=day.instantiate()
-	get_node("/root/main").add_child(next)
+	var reday=day.instantiate()
+	get_node("/root/main").add_child(reday)
 	var te=get_tree().create_tween()
 	te.tween_property(colo,"color:a",0,2)
 	await te.finished
@@ -45,6 +47,7 @@ func dia_out():
 
 func esencam_in(scene:int):
 	nex=scene
+	lay.set_visible(true)
 	lay.set_layer(11)
 	Seales.moverte=false
 	match scene:
@@ -57,6 +60,7 @@ func esencam_in(scene:int):
 	ESCENA_CAMBIO.emit()
 func esencam_out():
 	await get_tree().create_timer(1).timeout
+	lay.set_visible(false)
 	var te=get_tree().create_tween()
 	te.tween_property(colo,"color:a",0,2)
 	await te.finished

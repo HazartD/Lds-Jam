@@ -143,7 +143,7 @@ text = "English"
 
 [connection signal="button_down" from="Menuinicio/Button" to="Menuinicio" method="_on_button_button_down"]
 [connection signal="button_down" from="Menuinicio/VBoxContainer/Cargar" to="Menuinicio" method="_on_nueva_partida_2_button_down"]
-[connection signal="button_down" from="Menuinicio/VBoxContainer/nueva" to="Menuinicio" method="_on_nueva_partida_button_down"]
+[connection signal="button_down" from="Menuinicio/VBoxContainer/nueva" to="Menuinicio" method="_on_nueva_partida_button_down" flags=6]
 [connection signal="button_down" from="Menuinicio/VBoxContainer/options" to="Menuinicio" method="_on_options_button_down"]
 [connection signal="button_down" from="Menuinicio/VBoxContainer/exit" to="Menuinicio" method="_on_exit_button_down"]
 [connection signal="button_down" from="Menuinicio/Panel/es" to="." method="_on_es_down"]

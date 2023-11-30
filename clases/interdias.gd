@@ -1,6 +1,7 @@
 extends CanvasLayer
-func _ready():
+func _init():
 	Seales.ESCENA_CAMBIO.connect(continu)
+func _ready():
 	match Progresos.dia_es:
 		0:day_0()
 		1:day_1()
@@ -12,16 +13,12 @@ func _ready():
 		7:day_requeson()
 
 func day_0():
-	D.metertexto(["0d1","0d2"])
-	await D.FIN
+	await D.metertexto(["0d1","0d2"])
 	Seales.esencam_in(0)
 func day_1():
-	D.metertexto(["1d1","1d2"])
-	await D.FIN
-	await Seales.esencam_in(randi_range(1,2))
-	var li=Seales.liminal.instantiate()
-	add_sibling(li)
-	queue_free()
+	await D.metertexto(["1d1","1d2"])
+	Seales.esencam_in(randi_range(1,2))
+
 func day_2():
 	pass
 func day_3():

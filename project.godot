@@ -53,7 +53,7 @@ ui_cancel={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://traducciones/DiasIntermedios.en.translation", "res://traducciones/DiasIntermedios.es.translation", "res://traducciones/escenario_cabras.en.translation", "res://traducciones/escenario_cabras.es.translation", "res://traducciones/escenario_Cock.en.translation", "res://traducciones/escenario_Cock.es.translation", "res://traducciones/finales.en.translation", "res://traducciones/finales.es.translation", "res://traducciones/Menues.en.translation", "res://traducciones/Menues.es.translation", "res://traducciones/Items.en.translation", "res://traducciones/Items.es.translation")
+locale/translations=PackedStringArray("res://traducciones/DiasIntermedios.en.translation", "res://traducciones/DiasIntermedios.es.translation", "res://traducciones/escenario_cabras.en.translation", "res://traducciones/escenario_cabras.es.translation", "res://traducciones/escenario_Cock.en.translation", "res://traducciones/escenario_Cock.es.translation", "res://traducciones/finales.en.translation", "res://traducciones/finales.es.translation", "res://traducciones/Menues.en.translation", "res://traducciones/Menues.es.translation", "res://traducciones/Items.en.translation", "res://traducciones/Items.es.translation", "res://traducciones/intro.en.translation", "res://traducciones/intro.es.translation")
 
 [rendering]
 

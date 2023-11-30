@@ -1,7 +1,6 @@
 extends Control
 const botoncargar= preload("res://UI/cargar.tscn")
 const option=preload("res://UI/opciones.tscn")
-const primer=preload("res://clases/interdias.tscn")
 var dir=DirAccess.open("user://HazartD/7DNA/saves")
 @onready var colo=get_node("/root/main/Cambio/solid")
 @onready var lay=get_node("/root/main/Cambio")
@@ -38,8 +37,6 @@ func _on_nueva_partida_button_down():
 		Save.NombrePartida="user://HazartD/7DNA/saves/Slot%s.txt" %parti
 	print(Save.NombrePartida)
 	await dia_in()
-	var pr=primer.instantiate()
-	get_parent().add_sibling(pr)
 	get_parent().queue_free()
 	Seales.dia_out()
 

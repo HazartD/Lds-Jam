@@ -20,15 +20,14 @@ var input_vector = Vector2.ZERO
 				ray.rotation_degrees=90
 				ray.target_position.y=16
 
-
 func _physics_process(_delta):
 	if Seales.moverte:
 		input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 		input_vector = input_vector.normalized()
 		#gracias a xXtumbaBurrasXx del discord de godot por la idea
-	velocity=input_vector*SPEED
-	move_and_slide()
+		velocity=input_vector*SPEED
+		move_and_slide()
 
 func _input(event):
 	if Seales.moverte:

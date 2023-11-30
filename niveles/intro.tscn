@@ -1,9 +1,19 @@
-[gd_scene load_steps=39 format=3 uid="uid://doutmbpqd58jm"]
+[gd_scene load_steps=41 format=3 uid="uid://doutmbpqd58jm"]
 
 [ext_resource type="Script" path="res://niveles/intro.gd" id="1_ufvx0"]
 [ext_resource type="Texture2D" uid="uid://b8vwrqsaxjw8s" path="res://img/character/DW3_SeiryuSuzakuDigiNPCs.png" id="2_d2wag"]
 [ext_resource type="Script" path="res://clases/player.gd" id="2_we8ud"]
 [ext_resource type="Texture2D" uid="uid://brca4aqebfvxb" path="res://img/fondo nivel/intro.png" id="2_wea0u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eplyq"]
+resource_name = "intro"
+texture = ExtResource("2_wea0u")
+texture_region_size = Vector2i(6, 6)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ehnpe"]
+tile_size = Vector2i(6, 6)
+sources/0 = SubResource("TileSetAtlasSource_eplyq")
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_s7o57"]
 a = Vector2(-1500, 0)
@@ -257,7 +267,7 @@ animations = [{
 size = Vector2(30, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxl0b"]
-size = Vector2(82, 73)
+size = Vector2(2, 2)
 
 [node name="intro" type="Node2D"]
 script = ExtResource("1_ufvx0")
@@ -269,23 +279,17 @@ offset_top = -4998.0
 offset_right = 2578.0
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
-texture_repeat = 2
-offset_left = -26.0
-offset_top = -3980.0
-offset_right = 22.0
-texture = ExtResource("2_wea0u")
-stretch_mode = 1
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_left = -26.0
-offset_top = -3980.0
-offset_right = 22.0
+position = Vector2(25, 0)
+scale = Vector2(10, 10)
+tile_set = SubResource("TileSet_ehnpe")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65537, 0, 0, -131073, 0, 0, -196609, 0, 0, -262145, 0, 0, -327681, 0, 0, -393217, 0, 0, -458753, 0, 0, -524289, 0, 0, -589825, 0, 0, -655361, 0, 0, -720897, 0, 0, -786433, 0, 0, -851969, 0, 0, -917505, 0, 0, -983041, 0, 0, -1048577, 0, 0, -1114113, 0, 0, -1179649, 0, 0, -1245185, 0, 0, -1310721, 0, 0, -1376257, 0, 0, -1441793, 0, 0, -1507329, 0, 0, -1572865, 0, 0, -1638401, 0, 0, -1703937, 0, 0, -1769473, 0, 0, -1835009, 0, 0, -1900545, 0, 0, -1966081, 0, 0, -2031617, 0, 0, -2097153, 0, 0, -2162689, 0, 0, -2228225, 0, 0, -2293761, 0, 0, -2359297, 0, 0, -2424833, 0, 0, -2490369, 0, 0, -2555905, 0, 0, -2621441, 0, 0, -2686977, 0, 0, -2752513, 0, 0, -2818049, 0, 0, -2883585, 0, 0, -2949121, 0, 0, -3014657, 0, 0, -3080193, 0, 0, -3145729, 0, 0, -3211265, 0, 0, -3276801, 0, 0, -3342337, 0, 0, -3407873, 0, 0, -3473409, 0, 0, -3538945, 0, 0, -3604481, 0, 0, -3670017, 0, 0, -3735553, 0, 0, -3801089, 0, 0, -3866625, 0, 0, -3932161, 0, 0, -3997697, 0, 0, -4063233, 0, 0, -4128769, 0, 0, -1, 0, 0, -4915201, 0, 0)
 
 [node name="jaula" type="StaticBody2D" parent="."]
 editor_description = "seria mas bien \"limite para que no te freges\" pero primero pense en eso y me hizo gracia ponerle asi."
+collision_mask = 0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="jaula"]
@@ -297,6 +301,8 @@ shape = SubResource("SegmentShape2D_s7o57")
 
 [node name="Area2D" type="Area2D" parent="jaula"]
 position = Vector2(-2, -16)
+collision_layer = 0
+collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="jaula/Area2D"]
@@ -309,6 +315,8 @@ shape = SubResource("SegmentShape2D_diobd")
 
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(0, -21)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("2_we8ud")
 metadata/_edit_group_ = true
 
@@ -332,18 +340,17 @@ limit_bottom = 0
 position_smoothing_speed = 10.0
 editor_draw_limits = true
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, -4501.5)
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-5, -4529)
 scale = Vector2(13.6667, 12.1667)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(0.0731707, 0.0821918)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(4.3613e-08, 3.05176e-05)
 shape = SubResource("RectangleShape2D_jxl0b")
-
-[node name="Intro" type="Sprite2D" parent="Area2D"]
-texture_filter = 1
-texture = ExtResource("2_wea0u")
 
 [connection signal="body_entered" from="jaula/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="player/gil" to="player" method="_on_gil_animation_finished"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
