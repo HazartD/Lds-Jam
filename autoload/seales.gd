@@ -35,14 +35,13 @@ func dia_in():
 #	nex=randi_range(0,4)
 	DIA_CAMBIO.emit()
 func dia_out():
-	await get_tree().create_timer(1).timeout
-	lay.set_visible(false)
 	var day=load("res://clases/interdias.tscn")
 	var reday=day.instantiate()
 	get_node("/root/main").add_child(reday)
 	var te=get_tree().create_tween()
-	te.tween_property(colo,"color:a",0,2)
+	te.tween_property(colo,"color:a",0,2).set_delay(0.5)
 	await te.finished
+	lay.set_visible(false)
 	lay.set_layer(-10)
 
 func esencam_in(scene:int):
@@ -58,11 +57,12 @@ func esencam_in(scene:int):
 	t.tween_property(colo,"color:a",1,2)
 	await t.finished
 	ESCENA_CAMBIO.emit()
+	var lin=liminal.instantiate()
+	get_node("/root/main").add_child(lin)
 func esencam_out():
-	await get_tree().create_timer(1).timeout
-	lay.set_visible(false)
 	var te=get_tree().create_tween()
-	te.tween_property(colo,"color:a",0,2)
+	te.tween_property(colo,"color:a",0,2).set_delay(0.5)
 	await te.finished
 	Seales.moverte=true
+	lay.set_visible(false)
 	lay.set_layer(-10)

@@ -31,8 +31,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_nyblm")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="interdias"]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,7 +46,7 @@ offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Button"]
+[node name="Label" type="Label" parent="interdias/Button"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -62,4 +63,6 @@ text = "Elizabeth woke up"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="button_down" from="interdias/Button" to="." method="_on_button_button_down"]

@@ -85,7 +85,7 @@ size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../saba")
 focus_neighbor_right = NodePath("../../saba")
 min_value = -80.0
-max_value = 6.0
+max_value = 0.0
 
 [node name="sfx" type="HSlider" parent="MC/HB/accion" groups=["boton"]]
 custom_minimum_size = Vector2(0, 30)
@@ -94,7 +94,7 @@ size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../saba")
 focus_neighbor_right = NodePath("../../saba")
 min_value = -80.0
-max_value = 6.0
+max_value = 0.0
 
 [node name="ui" type="HSlider" parent="MC/HB/accion" groups=["boton"]]
 custom_minimum_size = Vector2(0, 30)
@@ -103,7 +103,7 @@ size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../saba")
 focus_neighbor_right = NodePath("../../saba")
 min_value = -80.0
-max_value = 6.0
+max_value = 0.0
 
 [node name="Button" type="Button" parent="MC/HB/accion" groups=["boton"]]
 layout_mode = 2

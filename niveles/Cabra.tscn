@@ -107,5 +107,7 @@ position = Vector2(785, 350)
 [node name="player" parent="." instance=ExtResource("8_uhcwa")]
 position = Vector2(670, 339)
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="interaccion" from="ent/Entidad" to="." method="_on_entidad_interaccion"]
 [connection signal="interaccion" from="el/Elemento" to="." method="_on_elemento_interaccion"]
