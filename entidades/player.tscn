@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://uw658mf4gof0"]
+[gd_scene load_steps=36 format=3 uid="uid://uw658mf4gof0"]
 
 [ext_resource type="Script" path="res://entidades/playerworld.gd" id="1_1ou3t"]
 [ext_resource type="Texture2D" uid="uid://b8vwrqsaxjw8s" path="res://img/character/DW3_SeiryuSuzakuDigiNPCs.png" id="3_km03l"]
 [ext_resource type="Script" path="res://entidades/chaque.gd" id="3_svm8i"]
+[ext_resource type="PackedScene" uid="uid://024trakey1jn" path="res://UI/in_game.tscn" id="4_hlyqf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pdr17"]
 
@@ -267,5 +268,7 @@ target_position = Vector2(0, 9)
 
 [node name="Cam" type="Camera2D" parent="."]
 script = ExtResource("3_svm8i")
+
+[node name="in_game" parent="." instance=ExtResource("4_hlyqf")]
 
 [connection signal="animation_finished" from="gil" to="." method="_on_gil_animation_finished"]

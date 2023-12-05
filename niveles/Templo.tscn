@@ -1,11 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://rhacwqdebt1b"]
+[gd_scene load_steps=8 format=3 uid="uid://rhacwqdebt1b"]
 
 [ext_resource type="Script" path="res://niveles/Templo.gd" id="1_4lkce"]
 [ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="1_bins8"]
 [ext_resource type="AudioStream" uid="uid://ck5job05j116f" path="res://sonido/BGM/Catholic_Temple_1.ogg" id="3_mhbve"]
+[ext_resource type="PackedScene" uid="uid://uw658mf4gof0" path="res://entidades/player.tscn" id="4_8ipda"]
+[ext_resource type="Script" path="res://clases/puerta.gd" id="5_28hm0"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3ua71"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_16kqw"]
+b = Vector2(60, 0)
 
 [node name="Templo" type="Node2D" groups=["Persist", "scenary"]]
 script = ExtResource("1_4lkce")
+puertas = {
+0: [Vector2(230, 13), Vector2(230, -10)]
+}
 
 [node name="previterio" type="Sprite2D" parent="."]
 position = Vector2(609, 222)
@@ -47,5 +57,25 @@ stream = ExtResource("3_mhbve")
 autoplay = true
 bus = &"BGM"
 
-[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
-[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[node name="entro" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="entro"]
+shape = SubResource("SegmentShape2D_3ua71")
+
+[node name="player" parent="." instance=ExtResource("4_8ipda")]
+position = Vector2(33, 35)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(185, -251)
+texture = ExtResource("1_bins8")
+
+[node name="puerta" type="StaticBody2D" parent="."]
+position = Vector2(193, 0)
+script = ExtResource("5_28hm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="puerta"]
+shape = SubResource("SegmentShape2D_16kqw")
+
+[connection signal="body_entered" from="entro" to="." method="entro" flags=6]

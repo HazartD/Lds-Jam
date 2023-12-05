@@ -11,7 +11,7 @@ func update_bar(val:int=1):
 		Seales.change.emit()
 	var sha=(10.0/Progresos.progresion["cordura"])*10.0
 	print(sha)
-	if sha in range(10,100):$Cam.shake(1.0,sha,sha)
+	if sha <101:$Cam.shake(1.0,sha,sha)
 func save():
 	var saver={"parent":get_parent().get_path(),
 	"filename":get_scene_file_path(),

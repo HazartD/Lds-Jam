@@ -11,8 +11,6 @@ func _ready():
 		$ent/Entidad/CollisionShape2D.queue_free()
 		$ent/Entidad/Placeholder.queue_free()
 	print("cabra reydeado")
-func _on_tree_entered():
-	print("cabra en el arbol")
 func _process(_delta):
 	num+=1
 	$Label.text=str(num)
@@ -61,7 +59,7 @@ func _on_entidad_interaccion():
 				await D.metertexto(["","d3"],"he")
 				
 				D.opcion({"aop1"=op2,"op3"=op3},"ask1")
-		
+
 func op1():
 	Progresos.progresion["inven"].append(Progresos.Objetos.PITO)
 	Progresos.progresion["neurosis"]+=1
@@ -108,5 +106,3 @@ func _on_elemento_interaccion():
 
 
 
-func _on_tree_exited():
-	print("cabasr fuera del arbol")
