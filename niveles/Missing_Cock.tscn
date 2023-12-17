@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3or82qhep5op"]
+
+[ext_resource type="Script" path="res://clases/scenari.gd" id="1_tjgnp"]
+
+[node name="Missing_Cock" type="Node2D"]
+editor_description = "Lo que me envio empezaba como \"Missing Pieces\" que parecia el nombre de una mision que traia pero me hacia gracia eso"
+script = ExtResource("1_tjgnp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 674.0
+offset_bottom = 97.0
+bbcode_enabled = true
+text = "bi1"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 21.0
+offset_top = 173.0
+offset_right = 576.0
+offset_bottom = 253.0
+bbcode_enabled = true
+text = "monsta"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = 5.0
+offset_top = 302.0
+offset_right = 562.0
+offset_bottom = 406.0
+bbcode_enabled = true
+text = "Epet"
