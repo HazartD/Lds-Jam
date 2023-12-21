@@ -5,4 +5,4 @@ func _init():
 	interaccion.connect(_on_interaccion)
 func _on_interaccion():
 	dentro=!dentro
-	pater.puertar(number,dentro)
+	pater.puertar(number,int(dentro))

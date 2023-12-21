@@ -23,10 +23,10 @@ func print_data():
 	print("progre:  "+str(Progresos.progresion))
 	print("hechos:  "+str(Progresos.hecho))
 
-func puertar(inde:int,saliendo:bool):
+func puertar(inde:int,saliendo:int):
 	var t=get_tree().create_tween()
-	t.tween_property(techos[inde],"modulate:a",float(saliendo),1)
-	t.tween_property(play,"position",puertas[inde][int(saliendo)],0.5)#no lo he comprobado pero quiero que sea asi 0 y 1 para agarrar las 2
+	t.tween_property(techos[inde],"modulate:a",saliendo,1)
+	t.tween_property(play,"position",puertas[inde][saliendo],0.5)#no lo he comprobado pero quiero que sea asi 0 y 1 para agarrar las 2
 #	else:t.tween_property(play,"position",puertas[inde][1],0.5)
 	match play.Est_Act:
 		0:play.set_down()

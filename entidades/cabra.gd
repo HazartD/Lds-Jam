@@ -1,10 +1,14 @@
 extends Entidad
-var steam:Array[String]=[]#sonidos
+var steam:Array[String]=["res://sonido/vozes/cabra0.mp3","res://sonido/vozes/cabra1.mp3","res://sonido/vozes/cabra2.mp3","res://sonido/vozes/cabra3.mp3","res://sonido/vozes/cabra4.mp3"]#sonidos
 var tim:float=0.0
 const animid=["down_idle","up_idle","right_idle","letf_idle"]
 const anim=["down","letf","right","up"]
 const _spead=150
 var move:Vector2
+
+func _ready():
+	$balido.stream=load(steam[number])
+	steam.clear()
 
 
 func _physics_process(delta):
@@ -22,17 +26,14 @@ func _physics_process(delta):
 			if $gil.animation==anim[0] and move.y<0:$gil.play("up")
 			if $gil.animation==anim[1] and move.x>0:$gil.play("right")
 			if $gil.animation==anim[2] and move.x<0:$gil.play("letf")
-			if $gil.animation==anim[3] and move.y>01:$gil.play("down")
+			if $gil.animation==anim[3] and move.y>0:$gil.play("down")
 	
 	velocity=move*_spead
 			
 	move_and_slide()
 
-func _ready():
-#	$balido.stream=load(steam[number])
-	steam.clear()
 func _on_interaccion():
-	pass
+	$balido.play()
 
 
 func _on_gil_animation_finished():
