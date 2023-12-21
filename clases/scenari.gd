@@ -1,7 +1,8 @@
 class_name escenario extends Node2D
 @onready var play:Player=$"../player"
 @export var puertas:Dictionary
-#la primera es la de estar adentro y la segunda es la de salir
+@export var posisionesdelosquesemueen:Array[Vector2]
+#la primera es la de estar afuera y la segunda es la de entrar
 var techos:Array[Sprite2D]
 #se setea en el ready
 func _init():
@@ -25,8 +26,8 @@ func print_data():
 func puertar(inde:int,saliendo:bool):
 	var t=get_tree().create_tween()
 	t.tween_property(techos[inde],"modulate:a",float(saliendo),1)
-	if saliendo:t.tween_property(play,"position",puertas[inde][0],0.5)
-	else:t.tween_property(play,"position",puertas[inde][1],0.5)
+	t.tween_property(play,"position",puertas[inde][int(saliendo)],0.5)#no lo he comprobado pero quiero que sea asi 0 y 1 para agarrar las 2
+#	else:t.tween_property(play,"position",puertas[inde][1],0.5)
 	match play.Est_Act:
 		0:play.set_down()
 		2:play.set_up()

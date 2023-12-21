@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://fkls0lwl8skh"]
+[gd_scene load_steps=21 format=3 uid="uid://fkls0lwl8skh"]
 
 [ext_resource type="Script" path="res://niveles/Cabras.gd" id="1_fj5la"]
 [ext_resource type="Texture2D" uid="uid://7jyf7jvwejkf" path="res://img/fondo nivel/cabra_test.jpg" id="2_8vgjk"]
@@ -8,8 +8,23 @@
 [ext_resource type="Script" path="res://clases/elemento.gd" id="6_h4pds"]
 [ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="7_kb5do"]
 [ext_resource type="PackedScene" uid="uid://uw658mf4gof0" path="res://entidades/player.tscn" id="8_uhcwa"]
+[ext_resource type="PackedScene" uid="uid://0ll2b1d42sji" path="res://entidades/cabra.tscn" id="9_xqvxt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n7tso"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gvbf0"]
+a = Vector2(1136, 0)
+b = Vector2(0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lpn7k"]
+b = Vector2(0, -1000)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xoptg"]
+a = Vector2(1136, 0)
+b = Vector2(0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cj8pb"]
+a = Vector2(0, -1000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dl3bc"]
 size = Vector2(74, 82)
@@ -38,6 +53,20 @@ material = SubResource("ShaderMaterial_n7tso")
 position = Vector2(1439.65, -1406.22)
 scale = Vector2(1.51882, 1.1182)
 texture = ExtResource("2_8vgjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fondo"]
+shape = SubResource("SegmentShape2D_gvbf0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fondo"]
+shape = SubResource("SegmentShape2D_lpn7k")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Fondo"]
+position = Vector2(0, -1000)
+shape = SubResource("SegmentShape2D_xoptg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Fondo"]
+position = Vector2(1136, 0)
+shape = SubResource("SegmentShape2D_cj8pb")
 
 [node name="Label" type="TextEdit" parent="."]
 offset_left = 591.0
@@ -105,7 +134,22 @@ shape = SubResource("RectangleShape2D_tpgmf")
 position = Vector2(785, 350)
 
 [node name="player" parent="." instance=ExtResource("8_uhcwa")]
-position = Vector2(670, 339)
+position = Vector2(178.896, -395.818)
+
+[node name="cabra" parent="." instance=ExtResource("9_xqvxt")]
+position = Vector2(258, -271)
+
+[node name="cabra2" parent="." instance=ExtResource("9_xqvxt")]
+position = Vector2(659, -198)
+
+[node name="cabra3" parent="." instance=ExtResource("9_xqvxt")]
+position = Vector2(540, -376)
+
+[node name="cabra4" parent="." instance=ExtResource("9_xqvxt")]
+position = Vector2(278, -89)
+
+[node name="cabra5" parent="." instance=ExtResource("9_xqvxt")]
+position = Vector2(588, -659)
 
 [connection signal="interaccion" from="ent/Entidad" to="." method="_on_entidad_interaccion"]
 [connection signal="interaccion" from="el/Elemento" to="." method="_on_elemento_interaccion"]

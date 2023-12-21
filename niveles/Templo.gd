@@ -4,7 +4,6 @@ func save():
 	var saver={"parent":get_parent().get_path(),"filename":get_scene_file_path()}
 	return saver
 func _ready():
-	techos=[$Node2D/Sprite2D]
 	$back.finished.connect(func():$back.play())
 	play=$player
 

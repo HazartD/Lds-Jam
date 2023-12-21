@@ -7,7 +7,7 @@ var moverte:bool=true
 @onready var lay:CanvasLayer=get_node("/root/main/Cambio")
 const liminal=preload("res://clases/liminal.tscn")
 const shaders=[preload("res://img/Shaders/invert.gdshader"),preload("res://img/Shaders/repit.gdshader")]
-const esenes=["res://niveles/intro.tscn","res://niveles/Templo.tscn","res://niveles/Cabra.tscn"]
+const esenes=["res://niveles/intro.tscn","res://niveles/Templo.tscn","res://niveles/Cabra.tscn","res://niveles/Missing_Cock.tscn"]
 var nex:int
 
 func _init():
@@ -39,7 +39,7 @@ func dia_out():
 	var reday=day.instantiate()
 	get_node("/root/main").add_child(reday)
 	var te=get_tree().create_tween()
-	te.tween_property(colo,"color:a",0,2).set_delay(0.5)
+	te.tween_property(colo,"color:a",0,2)#.set_delay(0.5)
 	await te.finished
 	lay.set_visible(false)
 	lay.set_layer(-10)
@@ -53,6 +53,7 @@ func esencam_in(scene:int):
 		0:colo.color=Color(1,1,1,0)
 		1:colo.color=Color(1,0,0,0)
 		2:colo.color=Color(0.87,0,0.74,0)
+		3:colo.color=Color(0.92,0.81,0,0)
 	var t=get_tree().create_tween()
 	t.tween_property(colo,"color:a",1,2)
 	await t.finished
@@ -61,7 +62,7 @@ func esencam_in(scene:int):
 	get_node("/root/main").add_child(lin)
 func esencam_out():
 	var te=get_tree().create_tween()
-	te.tween_property(colo,"color:a",0,2).set_delay(0.5)
+	te.tween_property(colo,"color:a",0,2)#.set_delay(0.5)
 	await te.finished
 	Seales.moverte=true
 	lay.set_visible(false)

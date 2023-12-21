@@ -1,10 +1,8 @@
 extends escenario
 var num:int=0
 enum hechos{test,prosti}
-
-
 func _ready():
-	set_play()
+#	set_play()
 	$before.finished.connect(func():$before.play())
 	$Label.text=str(num)
 	if Progresos.progresion["inven"].has(Progresos.Objetos.TRAUMA) or Progresos.progresion["inven"].has(Progresos.Objetos.HEART):

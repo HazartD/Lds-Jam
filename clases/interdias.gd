@@ -1,6 +1,9 @@
 extends CanvasLayer
+var siguientesena:int
 func _init():
 	Seales.ESCENA_CAMBIO.connect(continu)
+	siguientesena=randi_range(1,3)#para no poner a cada rato el randirange se setea aqui
+
 func day_0():
 	await D.metertexto(["0d1","0d2"])
 	Seales.esencam_in(0)
@@ -9,7 +12,7 @@ func day_1():
 	var play=load("res://entidades/player.tscn")
 	var pli=play.instantiate()
 	add_sibling(pli)
-	Seales.esencam_in(randi_range(1,2))
+	Seales.esencam_in(siguientesena)
 func day_2():
 	pass
 func day_3():

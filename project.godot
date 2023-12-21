@@ -55,6 +55,12 @@ ui_cancel={
 
 locale/translations=PackedStringArray("res://traducciones/DiasIntermedios.en.translation", "res://traducciones/DiasIntermedios.es.translation", "res://traducciones/escenario_cabras.en.translation", "res://traducciones/escenario_cabras.es.translation", "res://traducciones/escenario_Cock.en.translation", "res://traducciones/escenario_Cock.es.translation", "res://traducciones/finales.en.translation", "res://traducciones/finales.es.translation", "res://traducciones/Menues.en.translation", "res://traducciones/Menues.es.translation", "res://traducciones/Items.en.translation", "res://traducciones/Items.es.translation", "res://traducciones/intro.en.translation", "res://traducciones/intro.es.translation")
 
+[layer_names]
+
+2d_physics/layer_1="mundo"
+2d_physics/layer_2="player"
+2d_physics/layer_3="entidad movil"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
