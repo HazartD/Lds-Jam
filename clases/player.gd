@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 const menu=preload("res://UI/inventorymenu.tscn")
 @onready var ray:RayCast2D=$CollisionShape2D/RayCast2D
-const SPEED = 300.0
+const SPEED = 9000.0
 var input_vector = Vector2.ZERO
 @export_enum("DOWN","UP","RIGHT","LEFT") var Est_Act=0:
 	set(value):
@@ -20,13 +20,13 @@ var input_vector = Vector2.ZERO
 				ray.rotation_degrees=90
 				ray.target_position.y=16
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
 	#gracias a xXtumbaBurrasXx del discord de godot por la idea
 	if Seales.moverte:
-		velocity=input_vector*SPEED
+		velocity=input_vector*SPEED*delta
 		move_and_slide()
 
 func _input(event):

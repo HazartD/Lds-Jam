@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://2rhsyq31ja5i"
+
+[deps]
+
+files=["res://traducciones/escenario_purga.es.translation", "res://traducciones/escenario_purga.en.translation"]
+
+source_file="res://traducciones/escenario_purga.csv"
+dest_files=["res://traducciones/escenario_purga.es.translation", "res://traducciones/escenario_purga.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

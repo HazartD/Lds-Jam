@@ -249,7 +249,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o80s6"]
 size = Vector2(30, 17)
 
-[node name="player" type="CharacterBody2D" groups=["Persist"]]
+[node name="player" type="CharacterBody2D" groups=["Persist", "play"]]
 z_index = 5
 collision_layer = 2
 collision_mask = 5
@@ -270,6 +270,7 @@ target_position = Vector2(0, 9)
 collision_mask = 5
 
 [node name="Cam" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 script = ExtResource("3_svm8i")
 
 [node name="in_game" parent="." instance=ExtResource("4_hlyqf")]

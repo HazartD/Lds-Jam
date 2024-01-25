@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddyggc31ot8gm"]
+
+[ext_resource type="Script" path="res://entidades/juez.gd" id="1_betxr"]
+[ext_resource type="Texture2D" uid="uid://brca4aqebfvxb" path="res://img/fondo nivel/intro.png" id="2_63xfu"]
+[ext_resource type="AudioStream" uid="uid://pftajsihvxcf" path="res://sonido/sfx/detc.mp3" id="3_13qva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5num"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8qngl"]
+radius = 600.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o5ir"]
+size = Vector2(22, 22)
+
+[sub_resource type="Animation" id="Animation_70o1n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../au:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_aeecp"]
+resource_name = "detec"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../au:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7lmba"]
+_data = {
+"RESET": SubResource("Animation_70o1n"),
+"detec": SubResource("Animation_aeecp")
+}
+
+[node name="Juez" type="CharacterBody2D"]
+editor_description = "poner la colision del cballo frontal y que la de lado este movida"
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_betxr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o5num")
+
+[node name="vista" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="vista"]
+polygon = PackedVector2Array(0, 0, -911, -323, -1000, 0, -911, 323)
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_8qngl")
+
+[node name="asped" type="AnimatedSprite2D" parent="."]
+
+[node name="deteccion" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deteccion"]
+shape = SubResource("RectangleShape2D_7o5ir")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_7lmba")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3, 0)
+texture = ExtResource("2_63xfu")
+
+[node name="au" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_13qva")
+bus = &"SFX"
+
+[connection signal="interaccion" from="." to="." method="_on_interaccion"]
+[connection signal="body_entered" from="vista" to="." method="_on_vista_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
+[connection signal="animation_finished" from="asped" to="." method="_on_animated_sprite_2d_animation_finished"]

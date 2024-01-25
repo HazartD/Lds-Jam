@@ -3,7 +3,7 @@ var steam:Array[String]=["res://sonido/vozes/cabra0.mp3","res://sonido/vozes/cab
 var tim:float=0.0
 const animid=["down_idle","up_idle","right_idle","letf_idle"]
 const anim=["down","letf","right","up"]
-const _spead=150
+const _spead=6000
 var move:Vector2
 
 func _ready():
@@ -17,7 +17,7 @@ func _physics_process(delta):
 		tim=randf_range(1.0,5.0)
 		move= Vector2(randi_range(-1,1),randi_range(-1,1))
 		for a in range(10):if move!=Vector2.ZERO:move= Vector2(randi_range(-1,1),randi_range(-1,1))
-		print("time: ",tim,"  move: ",move)
+#		print("time: ",tim,"  move: ",move)
 		if move==Vector2.ZERO:$gil.play(animid.pick_random())
 		else:
 			$gil.play(anim.pick_random())
@@ -28,7 +28,7 @@ func _physics_process(delta):
 			if $gil.animation==anim[2] and move.x<0:$gil.play("letf")
 			if $gil.animation==anim[3] and move.y>0:$gil.play("down")
 	
-	velocity=move*_spead
+	velocity=move*_spead*delta
 			
 	move_and_slide()
 

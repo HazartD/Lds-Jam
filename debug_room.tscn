@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cobn7svmaaiu"]
+
+[ext_resource type="PackedScene" uid="uid://ddyggc31ot8gm" path="res://entidades/juez.tscn" id="1_h56cp"]
+[ext_resource type="PackedScene" uid="uid://uw658mf4gof0" path="res://entidades/player.tscn" id="2_aoh6d"]
+[ext_resource type="PackedScene" uid="uid://0ll2b1d42sji" path="res://entidades/cabra.tscn" id="3_mjwg3"]
+
+[node name="debug_room" type="Node2D"]
+
+[node name="Juez" parent="." instance=ExtResource("1_h56cp")]
+position = Vector2(-90, -557)
+
+[node name="player" parent="." instance=ExtResource("2_aoh6d")]
+position = Vector2(-95, 256)
+
+[node name="cabra" parent="." instance=ExtResource("3_mjwg3")]
+position = Vector2(-1750, -113)

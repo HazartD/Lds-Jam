@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmreucr8xelhn"]
+
+[ext_resource type="Script" path="res://clases/scenari.gd" id="1_mkkje"]
+
+[node name="Purga" type="Node2D"]
+script = ExtResource("1_mkkje")

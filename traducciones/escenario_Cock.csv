@@ -21,7 +21,7 @@ female3,(¿Fui tan convincente?),
 bi1,"[shake rate=5.0 level=1 connected=1]Siempre puedo contar con esto para hacerme llorar.[/shake]","[shake rate=10.0 level=2 connected=1]I can always count on this to make me cry[/shake]."
 bi2,Un cuento tan antiguo como el tiempo.,A tale as old as time
 bi3,Esto me hace sentir nostalgia...,This makes me homesick...
-bi4a,Pareces familiar...,You look familiar...
+bi4,Pareces familiar...,You look familiar...
 bi5,¿Por qué no estás en el escenario?,Why aren’t you on the stage?
 bi6,¿Esto te hace querer despertar?,Does this make you want to wake up?
 do1,"Los ojos están allá arriba, pero aquí abajo también hay espectaculo.","The eyes are up there, but it’s happening down here too"
@@ -31,11 +31,11 @@ ws1,No deberías estar aquí,You should not be here
 ws2,"¡Andate, cipotilla!","Scram, kid!"
 ws3,"Incluso para ti, esto está demasiado lejos","Even for you, this is too far"
 ws4,"¿Qué quieres decir con que llegaste?, ¡nunca te fuiste!","What do you mean you arrived?, you’ve never left!"
-do1,(¿Estamos haciendo contacto visual?),(Are we making eye contact?)
-dos,(Esta muñeca está sonriendo),(This doll is smiling)
-do3,(¿cabré dentro?),(Would I fit inside?)
-do4,"(Es seguro aquí, debería quedarme)","(It’s safe here, I should just stay)"
-pet,No te esperó,It didn’t wait for you.
+dol1,(¿Estamos haciendo contacto visual?),(Are we making eye contact?)
+dols,(Esta muñeca está sonriendo),(This doll is smiling)
+dol3,(¿cabré dentro?),(Would I fit inside?)
+dol4,"(Es seguro aquí, debería quedarme)","(It’s safe here, I should just stay)"
+pet1,No te esperó,It didn’t wait for you.
 Epet,"Tomaste la [rainbow freq=1.0 sat=0.8 val=0.8]Correa[/rainbow]","You take the [rainbow freq=1.0 sat=0.8 val=0.8]leash[/rainbow]"
 mul1,"¿Aspiras a ser como yo?
 Qué insultante.","You aspire to be like me?
@@ -45,7 +45,7 @@ mul3,"¿No sirvió?.
 Mira, te daré mi posesión más valiosa.","That didn’t work?.
 Tell you what, I’ll give you my most prized possession."
 mul4,Lo que más aprecio.,The thing I hold most dearest.
-Emul1,"Recives: [rainbow freq=1.0 sat=0.8 val=0.8]Espacio en Blanco[/rainbow]","Receive: [rainbow freq=1.0 sat=0.8 val=0.8]Blank Space[/rainbow]"
+Emul,"Recives: [rainbow freq=1.0 sat=0.8 val=0.8]Espacio en Blanco[/rainbow]","Receive: [rainbow freq=1.0 sat=0.8 val=0.8]Blank Space[/rainbow]"
 mul5,"¿No te gustó?
 Puedes irte ahora.","You didn’t like it?
 You can leave now."

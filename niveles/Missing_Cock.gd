@@ -1,2 +1,10 @@
 extends escenario
-
+const get=["Epet","Emul"]
+const tamer=["monsta","monstwo"]
+const entrar=["po1","po2",["po3a","po3b"],"sha1","shadows","sha3"]
+const actorm=["male1","male2","male3"]
+const actorf=["female1","female2","female3"]
+const stage=["bi1","bi2","bi3","bi4","bi5","bi6","do1","dos","do3"]
+const back=["ws1","ws2","ws3","ws4","dol1","dols","dol3","dol4"]
+const pet=["pet1"]
+const multi=["mul1","mul2","mul3","mul4","mul5"]
