@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://rhacwqdebt1b"]
+[gd_scene load_steps=7 format=3 uid="uid://rhacwqdebt1b"]
 
 [ext_resource type="Script" path="res://niveles/Templo.gd" id="1_4lkce"]
 [ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="1_bins8"]
-[ext_resource type="AudioStream" uid="uid://ck5job05j116f" path="res://sonido/BGM/Catholic_Temple_1.ogg" id="3_mhbve"]
+[ext_resource type="PackedScene" uid="uid://dtvdw0gup54f3" path="res://sonido/backtrack.tscn" id="2_m7wid"]
+[ext_resource type="AudioStream" uid="uid://chvj75e4mf556" path="res://sonido/BGM/Catholic_Temple_Intro.ogg" id="3_duh5g"]
+[ext_resource type="AudioStream" uid="uid://c5dmbovvmvdom" path="res://sonido/BGM/Catholic_Temple_Loop.ogg" id="4_uqykc"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3ua71"]
 
 [node name="Templo" type="Node2D" groups=["Persist", "scenary"]]
 script = ExtResource("1_4lkce")
+
+[node name="introloop" parent="." instance=ExtResource("2_m7wid")]
+intro = ExtResource("3_duh5g")
+loop = ExtResource("4_uqykc")
 
 [node name="previterio" type="Sprite2D" parent="."]
 position = Vector2(609, 222)
@@ -43,11 +49,6 @@ offset_top = 521.0
 offset_right = 1440.0
 offset_bottom = 2698.0
 color = Color(0.384314, 0.235294, 0, 1)
-
-[node name="back" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_mhbve")
-autoplay = true
-bus = &"BGM"
 
 [node name="entro" type="Area2D" parent="."]
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtvdw0gup54f3"]
+
+[ext_resource type="Script" path="res://sonido/backtrack.gd" id="1_x5lk8"]
+
+[node name="introloop" type="Node"]
+script = ExtResource("1_x5lk8")
+
+[node name="intro" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"
+
+[node name="loop" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"
+
+[connection signal="finished" from="intro" to="." method="_on_intro_finished"]
+[connection signal="finished" from="loop" to="." method="_on_loop_finished"]

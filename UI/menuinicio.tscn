@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtah6v33ftp5u"]
+[gd_scene load_steps=8 format=3 uid="uid://dtah6v33ftp5u"]
 
 [ext_resource type="Theme" uid="uid://b7ageewfyhi1d" path="res://UI/ui.tres" id="1_86xs0"]
 [ext_resource type="Script" path="res://UI/menuinicio.gd" id="1_r8e0t"]
+[ext_resource type="PackedScene" uid="uid://dtvdw0gup54f3" path="res://sonido/backtrack.tscn" id="1_xh6qe"]
+[ext_resource type="AudioStream" uid="uid://bp1sfygkurmsu" path="res://sonido/BGM/The_Beginning_Intro.ogg" id="2_j68jn"]
+[ext_resource type="AudioStream" uid="uid://cxi08rgmqs5lb" path="res://sonido/BGM/The_Beginning_Demo.ogg" id="3_88id8"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_0pmsx"]
 action = &"ui_cancel"
@@ -11,6 +14,10 @@ events = [SubResource("InputEventAction_0pmsx")]
 
 [node name="menuinicio" type="CanvasLayer"]
 layer = 10
+
+[node name="introloop" parent="." instance=ExtResource("1_xh6qe")]
+intro = ExtResource("2_j68jn")
+loop = ExtResource("3_88id8")
 
 [node name="Menuinicio" type="Control" parent="."]
 layout_mode = 3

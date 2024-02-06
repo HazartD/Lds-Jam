@@ -16,6 +16,7 @@ func _init():
 	ESCENA_CAMBIO.connect(esencam_out)
 func after():
 	Progresos.mode_after=true
+	
 	for node in get_tree().get_nodes_in_group("invert"):
 		node.material.shader=shaders[0]
 	for nod in get_tree().get_nodes_in_group("repit"):

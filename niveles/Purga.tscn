@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmreucr8xelhn"]
+[gd_scene load_steps=4 format=3 uid="uid://cmreucr8xelhn"]
 
 [ext_resource type="Script" path="res://clases/scenari.gd" id="1_mkkje"]
+[ext_resource type="AudioStream" uid="uid://bjlwj1qhsl1rw" path="res://sonido/BGM/Hell_-_Seabed_Only_File.ogg" id="2_ywcxp"]
+[ext_resource type="AudioStream" uid="uid://csk08eok0fi5a" path="res://sonido/BGM/Hell_-_Fire_Only_File.ogg" id="3_78sfa"]
 
 [node name="Purga" type="Node2D"]
 script = ExtResource("1_mkkje")
+
+[node name="sea" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ywcxp")
+bus = &"BGM"
+
+[node name="fire" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_78sfa")
+bus = &"BGM"

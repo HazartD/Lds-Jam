@@ -33,6 +33,10 @@ D="*res://autoload/D.tscn"
 
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray()
+
 [input]
 
 ui_accept={

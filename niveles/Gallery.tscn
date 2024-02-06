@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqlsarm4qxt0y"]
+
+[ext_resource type="Script" path="res://clases/scenari.gd" id="1_ulohe"]
+[ext_resource type="AudioStream" uid="uid://dcvbndhqtvdr2" path="res://sonido/BGM/Gallery_Scenario_1_attempt_2.ogg" id="2_qljk3"]
+[ext_resource type="AudioStream" uid="uid://cr2i1xxjbukwx" path="res://sonido/BGM/Gallery_Scenario_2.ogg" id="3_ra452"]
+
+[node name="Gallery" type="Node2D"]
+script = ExtResource("1_ulohe")
+
+[node name="before" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qljk3")
+
+[node name="after" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ra452")

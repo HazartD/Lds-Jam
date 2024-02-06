@@ -1,11 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://fkls0lwl8skh"]
+[gd_scene load_steps=20 format=3 uid="uid://fkls0lwl8skh"]
 
 [ext_resource type="Script" path="res://niveles/Cabras.gd" id="1_fj5la"]
 [ext_resource type="Texture2D" uid="uid://7jyf7jvwejkf" path="res://img/fondo nivel/cabra_test.jpg" id="2_8vgjk"]
-[ext_resource type="AudioStream" uid="uid://ddr365stosdws" path="res://sonido/BGM/Goat_Scenario_1.ogg" id="4_0k44m"]
-[ext_resource type="AudioStream" uid="uid://t4umlh2gwxhs" path="res://sonido/BGM/Goat_Scenario_2.ogg" id="5_gj77c"]
+[ext_resource type="PackedScene" uid="uid://dtvdw0gup54f3" path="res://sonido/backtrack.tscn" id="2_xskei"]
+[ext_resource type="AudioStream" uid="uid://d1lwg531jk7b2" path="res://sonido/BGM/Goat_Scenario_1_Intro.ogg" id="3_hh8yh"]
+[ext_resource type="AudioStream" uid="uid://n7u6mpjbmk1j" path="res://sonido/BGM/Goat_Scenario_1_Loop.ogg" id="4_nof0g"]
 [ext_resource type="Script" path="res://clases/entidad.gd" id="5_glogr"]
+[ext_resource type="AudioStream" uid="uid://vicfopomtwir" path="res://sonido/BGM/Goat_Scenario_2_Intro.ogg" id="5_unuhb"]
 [ext_resource type="Script" path="res://clases/elemento.gd" id="6_h4pds"]
+[ext_resource type="AudioStream" uid="uid://cadd28ync0tin" path="res://sonido/BGM/Goat_Scenario_2_Loop.ogg" id="6_i4s8h"]
 [ext_resource type="Texture2D" uid="uid://4l322vhi144e" path="res://placeholder.png" id="7_kb5do"]
 [ext_resource type="PackedScene" uid="uid://ddyggc31ot8gm" path="res://entidades/juez.tscn" id="9_pkqgs"]
 [ext_resource type="PackedScene" uid="uid://0ll2b1d42sji" path="res://entidades/cabra.tscn" id="9_xqvxt"]
@@ -32,6 +35,15 @@ script = ExtResource("1_fj5la")
 metadata/_edit_vertical_guides_ = []
 metadata/_edit_horizontal_guides_ = []
 
+[node name="before" parent="." instance=ExtResource("2_xskei")]
+intro = ExtResource("3_hh8yh")
+loop = ExtResource("4_nof0g")
+
+[node name="after" parent="." instance=ExtResource("2_xskei")]
+intro = ExtResource("5_unuhb")
+loop = ExtResource("6_i4s8h")
+change = true
+
 [node name="Fondo" type="StaticBody2D" parent="."]
 
 [node name="CabraTest" type="Sprite2D" parent="Fondo" groups=["invert"]]
@@ -46,17 +58,6 @@ offset_top = 138.0
 offset_right = 947.0
 offset_bottom = 233.0
 metadata/_edit_use_anchors_ = true
-
-[node name="before" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("4_0k44m")
-autoplay = true
-bus = &"BGM"
-
-[node name="after" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("5_gj77c")
-bus = &"BGM"
 
 [node name="ent" type="Node2D" parent="."]
 
