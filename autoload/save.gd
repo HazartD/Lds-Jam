@@ -4,7 +4,7 @@ signal cargado
 var NombrePartida:String="/Slot%s.txt"
 var dir= DirAccess.open("user://")
 func _init():
-	DirAccess.make_dir_absolute("user://HazartD/7DNA/saves")
+	DirAccess.make_dir_recursive_absolute("user://HazartD/7DNA/saves")
 	
 func save_g():
 	
